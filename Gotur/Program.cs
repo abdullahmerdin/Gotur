@@ -1,10 +1,14 @@
 using Gotur.Data;
+using Gotur.Data.Repository;
+using Gotur.Data.Repository.IRepository;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.EntityFrameworkCore;
 
 var builder = WebApplication.CreateBuilder(args);
 
-
+//Çaðýrýlan Interface'lere karþýlýk istenen sýnýflarýn somutlaþtýrýlmasý
+builder.Services.AddScoped(typeof(IRepository<>), typeof(Repository<>));
+builder.Services.AddScoped<IUnitOfWork, UnitOfWork>();
 
 // Add services to the container.
 var connectionString = builder.Configuration.GetConnectionString("DefaultConnection");
