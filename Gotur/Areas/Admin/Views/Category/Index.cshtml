@@ -1,0 +1,50 @@
+﻿@using Gotur.Data.Repository
+@model IEnumerable<Category>
+
+<div class="container">
+    <div class="row">
+        <div class="col-6">
+            <h2>Kategoriler</h2>
+
+        </div>
+
+        <div class="col-6">
+            <a asp-controller="Category" asp-action="Create" class="btn btn-primary">
+                <span>Oluştur</span>
+            </a><br />
+        </div>
+    </div>
+    <div class="row">
+
+
+
+        <table class="table table-bordered table-striped m-2">
+            <thead>
+                <tr>
+                    <th>İsim</th>
+                    <th></th>
+                </tr>
+            </thead>
+            <tbody>
+            @foreach (var category in Model)
+            {
+                <tr>
+                    <td>@category.Name</td>
+                    <td>
+
+                        <a asp-controller="Category" asp-action="Edit" asp-route-id="@category.Id" class="btn btn-secondary">
+                            <span>Güncelle</span>
+                        </a>
+                        |
+                        <a asp-controller="Category" asp-action="Delete" asp-route-id="@category.Id" class="btn btn-danger">
+                            <span>Sil</span>
+                        </a>
+
+                    </td>
+                </tr>
+            }    
+
+            </tbody>
+        </table>
+    </div> 
+</div>
