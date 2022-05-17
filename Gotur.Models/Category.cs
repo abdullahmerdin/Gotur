@@ -12,6 +12,7 @@ namespace Gotur.Models
         [Key]
         public int Id { get; set; }
         [Required]
+        [Display(Name = "İsim")]
         public string Name { get; set; }
     }
 }
