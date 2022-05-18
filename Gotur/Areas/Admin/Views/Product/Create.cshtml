@@ -1,0 +1,31 @@
+﻿@model Product
+
+<form method="POST">
+    <h2>Ürün Oluştur</h2>
+    
+    <div class="row">
+        
+        <label asp-for="Name"></label>
+        <input asp-for="Name" class="form-control"/>
+        
+        <label asp-for="CategoryId"></label>
+        <input asp-for="CategoryId" class="form-control"/>
+        
+        <label asp-for="Description"></label>
+        <input asp-for="Description" class="form-control"/>
+        
+        <label asp-for="Price"></label>
+        <input asp-for="Price" class="form-control"/>
+        
+        <label asp-for="Image"></label>
+        <input asp-for="Image" class="form-control"/>
+    </div>
+    <div class="row">
+        <button type="submit" class="btn btn-primary col-3 m-1">
+            Oluştur
+        </button>
+        <a asp-controller="Product" asp-action="Index" class="btn btn-secondary col-3 m-1">
+            <span> Geri Dön</span>
+        </a>
+    </div>
+</form>

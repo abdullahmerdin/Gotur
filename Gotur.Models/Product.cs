@@ -12,17 +12,21 @@ namespace Gotur.Models
     {
         [Key]
         public int Id { get; set; }
-        [Required]
+        [Required, Display(Name = "İsim")]
         public string Name { get; set; }
+        [Display(Name = "Açıklama")]
         public string Description { get; set; }
+        [Display(Name = "Fiyat")]
         public double Price { get; set; }
+        [Display(Name = "Fotoğraf")]
         public string Image { get; set; }
         public int CategoryId { get; set; }
 
 
         // İlişkilendirme //
        
-        [ForeignKey("CategoryId")]
+        [ForeignKey("CategoryId"), Display(Name = "Kategori")]
+        
         public Category Category { get; set; }
 
 
