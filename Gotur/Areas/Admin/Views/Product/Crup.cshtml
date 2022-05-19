@@ -1,0 +1,35 @@
+﻿@using Microsoft.AspNetCore.Mvc.TagHelpers
+@model Gotur.Models.ViewModels.ProductVM
+
+
+<form method="POST">
+    <h2>Ürün @(Model.Product.Id<=0?"Ekle" : "Güncelle")</h2>
+    
+    <div class="row">
+        
+        <label asp-for="Product.Name"></label>
+        <input asp-for="Product.Name" class="form-control"/>
+        
+        <label asp-for="Product.CategoryId"></label>
+        <select asp-for="Product.CategoryId" asp-items="@Model.CategoryList" class="form-control">
+            <option disabled selected>--Lütfen Bir Kategori Seçiniz</option>
+        </select>
+        
+        <label asp-for="Product.Description"></label>
+        <input asp-for="Product.Description" class="form-control"/>
+        
+        <label asp-for="Product.Price"></label>
+        <input asp-for="Product.Price" class="form-control"/>
+        
+        <label asp-for="Product.Image"></label>
+        <input asp-for="Product.Image" class="form-control"/>
+    </div>
+    <div class="row">
+        <button type="submit" class="btn btn-primary col-3 m-1">
+            @(Model.Product.Id<=0?"Ekle" : "Güncelle")
+        </button>
+        <a asp-controller="Product" asp-action="Index" class="btn btn-secondary col-3 m-1">
+            <span> Geri Dön</span>
+        </a>
+    </div>
+</form>

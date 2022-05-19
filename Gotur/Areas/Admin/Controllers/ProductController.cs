@@ -1,6 +1,8 @@
 ﻿using Gotur.Data.Repository.IRepository;
 using Gotur.Models;
+using Gotur.Models.ViewModels;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.AspNetCore.Mvc.Rendering;
 
 namespace Gotur.Areas.Admin.Controllers
 {
@@ -20,56 +22,52 @@ namespace Gotur.Areas.Admin.Controllers
             IEnumerable<Product> productList = _unitOfWork.Product.GetAll();
 
             return View(productList);
-        
+
         }
 
-        //Ürün oluşturma
-        public IActionResult Create()
+        //Ürün oluşturma ve güncelleme
+        public IActionResult Crup(int? id)
         {
-
-            return View();
-        }
-
-        [HttpPost]
-        public IActionResult Create(Product product)
-        {
-            if (ModelState.IsValid)
+            ProductVM productVM = new()
             {
-                _unitOfWork.Product.Add(product);
-                _unitOfWork.Save();
-                return RedirectToAction("Index");
-            }
+                Product = new(),
+                CategoryList = _unitOfWork.Category.GetAll().Select(
+                    l => new SelectListItem
+                    {
+                        Text = l.Name,
+                        Value = l.Id.ToString()
+                    })
 
-            return View(product);
-        }
-    
-        //Ürün güncelleme
-        public IActionResult Edit(int? id)
-        {
+            };
             if (id == null || id <= 0)
             {
-                return NotFound();
+                return View(productVM);
             }
 
-            var product = _unitOfWork.Product.GetFirstOrDefault(x => x.Id == id);
-            if (product == null)
+            productVM.Product = _unitOfWork.Product.GetFirstOrDefault(x => x.Id == id);
+            if (productVM.Product == null)
             {
-                return NotFound();
+                return View(productVM);
             }
 
-            return View(product);
+            return View(productVM);
         }
         [HttpPost]
-        public IActionResult Edit(Product product)
+        public IActionResult Crup(ProductVM productVM)
         {
-            if (ModelState.IsValid)
+            if (productVM.Product.Id <= 0)
             {
-                _unitOfWork.Product.Update(product);
-                _unitOfWork.Save();
-                return RedirectToAction("Index");
-            }
+                _unitOfWork.Product.Add(productVM.Product);
 
-            return View(product);
+            }
+            else
+            {
+                _unitOfWork.Product.Update(productVM.Product);
+            }
+            _unitOfWork.Save();
+            return RedirectToAction("Index");
+
+
         }
 
         //Ürün Silme
