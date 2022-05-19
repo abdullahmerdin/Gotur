@@ -25,7 +25,7 @@ namespace Gotur.Models
 
         // İlişkilendirme //
        
-        [ForeignKey("CategoryId"), Display(Name = "Kategori")]
+        [ForeignKey("CategoryId"), Display(Name = "İsim")]
         
         public Category Category { get; set; }
 

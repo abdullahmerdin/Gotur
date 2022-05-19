@@ -42,7 +42,7 @@ namespace Gotur.Areas.Admin.Controllers
 
             return View(product);
         }
-
+    
         //Ürün güncelleme
         public IActionResult Edit(int? id)
         {
