@@ -10,10 +10,11 @@ namespace Gotur.Areas.Admin.Controllers
     public class ProductController : Controller
     {
         private readonly IUnitOfWork _unitOfWork;
-
-        public ProductController(IUnitOfWork unitOfWork)
+        private readonly IWebHostEnvironment _hostEnvironment;
+        public ProductController(IUnitOfWork unitOfWork, IWebHostEnvironment hostEnvironment)
         {
             _unitOfWork = unitOfWork;
+            _hostEnvironment = hostEnvironment;
         }
 
         //Listeleme
@@ -53,8 +54,42 @@ namespace Gotur.Areas.Admin.Controllers
             return View(productVM);
         }
         [HttpPost]
-        public IActionResult Crup(ProductVM productVM)
+        public IActionResult Crup(ProductVM productVM, IFormFile file)
         {
+            //Image
+            string wwwRootPath = _hostEnvironment.WebRootPath;
+
+            if (file != null)
+            {
+                //Ayni isimli dosyaların yüklenebilmesi
+                string fileName = Guid.NewGuid().ToString();
+
+                var uploadRoot = Path.Combine(wwwRootPath, @"img\products");
+                var extension = Path.GetExtension(file.FileName);
+
+                //Fotoğraf güncelleme
+                if (productVM.Product.Image != null)
+                {
+                    var oldPicPath = Path.Combine(wwwRootPath, productVM.Product.Image);
+                    if (System.IO.File.Exists(oldPicPath))
+                    {
+                        System.IO.File.Delete(oldPicPath);
+                    }
+
+                }
+
+                //Yeni Fotoğraf Yükleme
+                using (var fileStream = new FileStream(Path.Combine(uploadRoot, fileName + extension),
+                           FileMode.Create))
+                {
+                    file.CopyTo(fileStream);
+                }
+
+                productVM.Product.Image = @"\img\products\" + fileName + extension;
+
+
+            }
+
             if (productVM.Product.Id <= 0)
             {
                 _unitOfWork.Product.Add(productVM.Product);
