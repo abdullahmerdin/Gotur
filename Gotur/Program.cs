@@ -6,7 +6,11 @@ using Microsoft.EntityFrameworkCore;
 
 var builder = WebApplication.CreateBuilder(args);
 
-//Çaðýrýlan Interface'lere karþýlýk istenen sýnýflarýn somutlaþtýrýlmasý
+//KullanÄ±cÄ± ekleme
+builder.Services.AddIdentity<IdentityUser, IdentityRole>().AddDefaultTokenProviders()
+    .AddEntityFrameworkStores<ApplicationDbContext>();
+
+//ï¿½aï¿½ï¿½rï¿½lan Interface'lere karï¿½ï¿½lï¿½k istenen sï¿½nï¿½flarï¿½n somutlaï¿½tï¿½rï¿½lmasï¿½
 builder.Services.AddScoped(typeof(IRepository<>), typeof(Repository<>));
 builder.Services.AddScoped<IUnitOfWork, UnitOfWork>();
 
