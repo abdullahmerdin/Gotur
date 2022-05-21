@@ -1,0 +1,54 @@
+﻿@model IEnumerable<OrderProduct>
+
+<div class="container">
+    <div class="row">
+        <div class="col-6">
+            <h2>Siparişer</h2>
+
+        </div>
+
+    </div>
+    <div class="row">
+
+
+
+        <table class="table table-bordered table-striped m-2">
+            <thead>
+            <tr>
+                <th>Id</th>
+                <th>Kullanıcı</th>
+                <th>Tarih</th>
+                <th>Tutar</th>
+                <th>Durum</th>
+                <th>Adres</th>
+            </tr>
+            </thead>
+            <tbody>
+            @foreach (var orderProduct in Model)
+            {
+                <tr>
+                    <td><img src="@orderProduct.Id" width="100px" height="100px"/></td>
+                    <td>@orderProduct.AppUser.FullName</td>
+                    <td>@orderProduct.OrderDate</td>
+                    <td>@orderProduct.OrderPrice</td>
+                    <td>@orderProduct.OrderStatus</td>
+                    <td>@orderProduct.Adress.Substring(0, 20)</td>
+                    <td>
+                        
+                        <a asp-controller="Product" asp-action="Crup" asp-route-id="@orderProduct.Id" class="btn btn-secondary">
+                            <span>Güncelle</span>
+                        </a>
+                        |
+                        <a onclick="    return confirm('Silmek istediğinize emin misiniz?');" asp-controller="Product" asp-action="Delete" asp-route-id="@orderProduct.Id" class="btn btn-danger">
+                            <span>Sil</span>
+                        </a>
+
+                    </td>
+
+                </tr>
+            }    
+
+            </tbody>
+        </table>
+    </div> 
+</div>
