@@ -17,6 +17,7 @@
 
   <ItemGroup>
     <ProjectReference Include="..\Gotur.Data\Gotur.Data.csproj" />
+    <ProjectReference Include="..\Gotur.SharedTools\Gotur.SharedTools.csproj" />
   </ItemGroup>
 
   <ItemGroup>

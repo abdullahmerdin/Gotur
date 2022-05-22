@@ -39,6 +39,7 @@ namespace Gotur.Areas.Identity.Pages.Account
             IEmailSender emailSender,
             RoleManager<IdentityRole> roleManager)
         {
+           
             _roleManager = roleManager;
             _userManager = userManager;
             _userStore = userStore;
@@ -105,6 +106,13 @@ namespace Gotur.Areas.Identity.Pages.Account
 
         public async Task OnGetAsync(string returnUrl = null)
         {
+            //Admin ve Customer olusturma
+            if (!_roleManager.RoleExistsAsync("Admin").GetAwaiter().GetResult() || !_roleManager.RoleExistsAsync("Customer").GetAwaiter().GetResult())
+            {
+                _roleManager.CreateAsync(new IdentityRole("Admin")).GetAwaiter().GetResult();
+                _roleManager.CreateAsync(new IdentityRole("Customer")).GetAwaiter().GetResult();
+            }
+
             ReturnUrl = returnUrl;
             ExternalLogins = (await _signInManager.GetExternalAuthenticationSchemesAsync()).ToList();
         }
