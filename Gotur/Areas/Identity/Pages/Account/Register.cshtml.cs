@@ -11,6 +11,9 @@ using System.Text.Encodings.Web;
 using System.Threading;
 using System.Threading.Tasks;
 using Gotur.Models;
+using Gotur.Data;
+using Gotur.Data.Repository;
+using Gotur.Data.Repository.IRepository;
 using Microsoft.AspNetCore.Authentication;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Identity;
@@ -31,6 +34,9 @@ namespace Gotur.Areas.Identity.Pages.Account
         private readonly ILogger<RegisterModel> _logger;
         private readonly IEmailSender _emailSender;
         private readonly RoleManager<IdentityRole> _roleManager;
+        private readonly IUnitOfWork _unitOfWork;
+
+
 
         public RegisterModel(
             UserManager<IdentityUser> userManager,
@@ -38,9 +44,11 @@ namespace Gotur.Areas.Identity.Pages.Account
             SignInManager<IdentityUser> signInManager,
             ILogger<RegisterModel> logger,
             IEmailSender emailSender,
-            RoleManager<IdentityRole> roleManager)
+            RoleManager<IdentityRole> roleManager,
+            IUnitOfWork unitOfWork)
+
         {
-           
+            _unitOfWork = unitOfWork;
             _roleManager = roleManager;
             _userManager = userManager;
             _userStore = userStore;
@@ -102,7 +110,7 @@ namespace Gotur.Areas.Identity.Pages.Account
             [Display(Name = "Confirm password")]
             [Compare("Password", ErrorMessage = "The password and confirmation password do not match.")]
             public string ConfirmPassword { get; set; }
-            [Required]
+
             public string FullName { get; set; }
             public string Adresses { get; set; }
 
@@ -136,11 +144,15 @@ namespace Gotur.Areas.Identity.Pages.Account
                 await _emailStore.SetEmailAsync(user, Input.Email, CancellationToken.None);
 
                 //Kullanici bilgilerini register ekraninda alma
-                user.FullName=Input.FullName;
-                user.Adresses=Input.Adresses;
-                user.CellPhone=Input.CellPhone;
+                user.FullName = Input.FullName;
+                user.Adresses = Input.Adresses;
+                user.CellPhone = Input.CellPhone;
 
                 var result = await _userManager.CreateAsync(user, Input.Password);
+
+                //Default kullanici grubu
+                AppUser appUser = _unitOfWork.AppUser.GetFirstOrDefault(x => x.Email == user.Email);
+                _userManager.AddToRoleAsync(appUser, "Customer").GetAwaiter().GetResult();
 
                 if (result.Succeeded)
                 {
