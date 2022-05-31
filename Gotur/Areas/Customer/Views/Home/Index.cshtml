@@ -2,204 +2,321 @@
 
 <script src="https://cdn.builder.io/js/webcomponents"></script>
 <builder-component model="page" api-key="YOUR_API_KEY"></builder-component>
-
-@foreach (var product in Model)
-{
-  <div class="div">
-  <div class="div-2">
-    <div class="div-3">
-      <div class="div-4">
-        <div class="div-5">
-          <picture>
-            <source
-              srcset="
-                https://cdn.builder.io/api/v1/file/assets%2Fanonymous%2F9f837f2ea4734d6f9ce3d5746e7f3abe?format=webp&width=100   100w,
-                https://cdn.builder.io/api/v1/file/assets%2Fanonymous%2F9f837f2ea4734d6f9ce3d5746e7f3abe?format=webp&width=200   200w,
-                https://cdn.builder.io/api/v1/file/assets%2Fanonymous%2F9f837f2ea4734d6f9ce3d5746e7f3abe?format=webp&width=400   400w,
-                https://cdn.builder.io/api/v1/file/assets%2Fanonymous%2F9f837f2ea4734d6f9ce3d5746e7f3abe?format=webp&width=800   800w,
-                https://cdn.builder.io/api/v1/file/assets%2Fanonymous%2F9f837f2ea4734d6f9ce3d5746e7f3abe?format=webp&width=1200 1200w,
-                https://cdn.builder.io/api/v1/file/assets%2Fanonymous%2F9f837f2ea4734d6f9ce3d5746e7f3abe?format=webp&width=1600 1600w,
-                https://cdn.builder.io/api/v1/file/assets%2Fanonymous%2F9f837f2ea4734d6f9ce3d5746e7f3abe?format=webp&width=2000 2000w,
-                https://cdn.builder.io/api/v1/file/assets%2Fanonymous%2F9f837f2ea4734d6f9ce3d5746e7f3abe
-              "
-              type="image/webp"
-            />
-            <img
-              src="https://cdn.builder.io/api/v1/file/assets%2Fanonymous%2F9f837f2ea4734d6f9ce3d5746e7f3abe"
-              srcset="
-                https://cdn.builder.io/api/v1/file/assets%2Fanonymous%2F9f837f2ea4734d6f9ce3d5746e7f3abe?width=100   100w,
-                https://cdn.builder.io/api/v1/file/assets%2Fanonymous%2F9f837f2ea4734d6f9ce3d5746e7f3abe?width=200   200w,
-                https://cdn.builder.io/api/v1/file/assets%2Fanonymous%2F9f837f2ea4734d6f9ce3d5746e7f3abe?width=400   400w,
-                https://cdn.builder.io/api/v1/file/assets%2Fanonymous%2F9f837f2ea4734d6f9ce3d5746e7f3abe?width=800   800w,
-                https://cdn.builder.io/api/v1/file/assets%2Fanonymous%2F9f837f2ea4734d6f9ce3d5746e7f3abe?width=1200 1200w,
-                https://cdn.builder.io/api/v1/file/assets%2Fanonymous%2F9f837f2ea4734d6f9ce3d5746e7f3abe?width=1600 1600w,
-                https://cdn.builder.io/api/v1/file/assets%2Fanonymous%2F9f837f2ea4734d6f9ce3d5746e7f3abe?width=2000 2000w,
-                https://cdn.builder.io/api/v1/file/assets%2Fanonymous%2F9f837f2ea4734d6f9ce3d5746e7f3abe
-              "
-              class="image"
-              data-name="image"
-            />
-          </picture>
-          <div class="builder-image-sizer image-sizer"></div>
-        </div>
-      </div>
-    </div>
-    <div class="div-6">
-      <picture>
-        <source
-          srcset="
-            https://cdn.builder.io/api/v1/image/assets%2FTEMP%2Fef509f10fd6b4e798b65b1c2a3d785bc?format=webp&width=100   100w,
-            https://cdn.builder.io/api/v1/image/assets%2FTEMP%2Fef509f10fd6b4e798b65b1c2a3d785bc?format=webp&width=200   200w,
-            https://cdn.builder.io/api/v1/image/assets%2FTEMP%2Fef509f10fd6b4e798b65b1c2a3d785bc?format=webp&width=400   400w,
-            https://cdn.builder.io/api/v1/image/assets%2FTEMP%2Fef509f10fd6b4e798b65b1c2a3d785bc?format=webp&width=800   800w,
-            https://cdn.builder.io/api/v1/image/assets%2FTEMP%2Fef509f10fd6b4e798b65b1c2a3d785bc?format=webp&width=1200 1200w,
-            https://cdn.builder.io/api/v1/image/assets%2FTEMP%2Fef509f10fd6b4e798b65b1c2a3d785bc?format=webp&width=1600 1600w,
-            https://cdn.builder.io/api/v1/image/assets%2FTEMP%2Fef509f10fd6b4e798b65b1c2a3d785bc?format=webp&width=2000 2000w,
-            https://cdn.builder.io/api/v1/image/assets%2FTEMP%2Fef509f10fd6b4e798b65b1c2a3d785bc
-          "
-          type="image/webp"
-        />
-        <img
-          src="https://cdn.builder.io/api/v1/image/assets%2FTEMP%2Fef509f10fd6b4e798b65b1c2a3d785bc"
-          srcset="
-            https://cdn.builder.io/api/v1/image/assets%2FTEMP%2Fef509f10fd6b4e798b65b1c2a3d785bc?width=100   100w,
-            https://cdn.builder.io/api/v1/image/assets%2FTEMP%2Fef509f10fd6b4e798b65b1c2a3d785bc?width=200   200w,
-            https://cdn.builder.io/api/v1/image/assets%2FTEMP%2Fef509f10fd6b4e798b65b1c2a3d785bc?width=400   400w,
-            https://cdn.builder.io/api/v1/image/assets%2FTEMP%2Fef509f10fd6b4e798b65b1c2a3d785bc?width=800   800w,
-            https://cdn.builder.io/api/v1/image/assets%2FTEMP%2Fef509f10fd6b4e798b65b1c2a3d785bc?width=1200 1200w,
-            https://cdn.builder.io/api/v1/image/assets%2FTEMP%2Fef509f10fd6b4e798b65b1c2a3d785bc?width=1600 1600w,
-            https://cdn.builder.io/api/v1/image/assets%2FTEMP%2Fef509f10fd6b4e798b65b1c2a3d785bc?width=2000 2000w,
-            https://cdn.builder.io/api/v1/image/assets%2FTEMP%2Fef509f10fd6b4e798b65b1c2a3d785bc
-          "
-          class="image"
-        />
-      </picture>
-      <div class="builder-image-sizer image-sizer"></div>
-    </div>
-    <div class="div-7">₺25,90</div>
-    <div class="div-8">Avokado 3'lü</div>
-  </div>
-</div>
-}
 <style>
-  .div {
-    display: flex;
-    flex-direction: row;
-    max-width: 1518px;
-    justify-content: flex-start;
-    margin-right: auto;
-  }
-  .div-2 {
-    display: flex;
-    flex-direction: column;
-    max-width: 136px;
-    justify-content: flex-start;
-    align-items: flex-start;
-    padding-top: 12px;
-    padding-bottom: 12px;
-    padding-right: 9px;
-    padding-left: 8px;
-    background-color: rgba(255, 255, 255, 1);
-    margin-left: 14px;
-  }
-  .div-3 {
-    display: flex;
-    flex-direction: column;
-    max-width: 54px;
-    justify-content: flex-start;
-    align-items: flex-start;
-    border-radius: 8px;
-    box-shadow: 0px 2px 4px 0px rgba(0, 0, 0, 0.10000000149011612);
-    padding-top: 3px;
-    padding-bottom: 3px;
-    padding-right: 3px;
-    padding-left: 3px;
-    border-color: rgba(0, 0, 0, 0.07999999821186066);
-    border-width: 1px;
-    border-style: solid;
-    margin-left: auto;
-  }
-  .div-4 {
-    display: flex;
-    flex-direction: row;
-    max-width: 48px;
-    justify-content: flex-start;
-    align-items: flex-start;
-    padding-top: 4px;
-    padding-bottom: 10px;
-    padding-right: 10px;
-    padding-left: 8px;
-  }
-  .div-5 {
-    display: flex;
-    flex-direction: column;
-    position: relative;
-    margin-left: 2px;
-    width: 100%;
-    min-height: 20px;
-    min-width: 20px;
-    overflow: hidden;
-    margin-right: auto;
-    margin-top: 5px;
-    margin-bottom: 0px;
-  }
-  .image {
-    object-fit: cover;
-    object-position: center;
-    position: absolute;
-    height: 100%;
-    width: 100%;
-    top: 0;
-    left: 0;
-  }
-  .image-sizer {
-    width: 100%;
-    padding-top: 100%;
-    pointer-events: none;
-    font-size: 0;
-  }
-  .div-6 {
-    display: flex;
-    position: relative;
-    min-width: 20px;
-    min-height: 20px;
-    max-width: 120px;
-    width: 120px;
-    margin-bottom: 18px;
-  }
-  .div-7 {
-    max-width: 44px;
-    color: rgba(93, 62, 188, 1);
-    font-size: 13px;
-    line-height: 18px;
-    letter-spacing: 0%;
-    text-align: left;
-    font-family: Open Sans, sans-serif;
-  }
-  .div-8 {
-    max-width: 87px;
-    color: rgba(25, 25, 25, 1);
-    font-size: 14px;
-    line-height: 18px;
-    letter-spacing: 0%;
-    text-align: center;
-    font-family: Open Sans, sans-serif;
-  }
-</style>
-<script>
-  (() => {
-    const state = {};
-
-    // Function to update data bindings and loops
-    // call update() when you mutate state and need the updates to reflect
-    // in the dom
-    function update() {
-      document.querySelectorAll("[data-name='image']").forEach((el) => {
-        el.loading = "lazy";
-      });
+    .flex-container {
+        display: flex;
+        flex-direction: row;
+        justify-content: center;
+        align-items: center;
+        flex-wrap: wrap;
     }
 
-    // Update with initial state on first load
-    update();
-  })();
-</script>
+    .flex-product-container {
+        display: flex;
+        flex-direction: row;
+        justify-content: center;
+        align-items: center;
+        flex-wrap: wrap;
+    }
+</style>
+
+
+<div class="flex-container">
+    <div class="div-10" style="margin-top: 5%; box-shadow: 0.1em  0.1em 0.1em 0.1em rgba(0,0,0,0.1);">
+        <div class="div-11">
+            <div class="div-12" style="flex-grow: 0">
+                <div class="div-13">
+                    <div class="div-14">
+                        <div class="div-15">
+                            <picture>
+                                <source srcset="
+                  https://cdn.builder.io/api/v1/image/assets%2FTEMP%2Fbe74d2b454354c139ec2de1f253bef20?format=webp&width=100   100w,
+                  https://cdn.builder.io/api/v1/image/assets%2FTEMP%2Fbe74d2b454354c139ec2de1f253bef20?format=webp&width=200   200w,
+                  https://cdn.builder.io/api/v1/image/assets%2FTEMP%2Fbe74d2b454354c139ec2de1f253bef20?format=webp&width=400   400w,
+                  https://cdn.builder.io/api/v1/image/assets%2FTEMP%2Fbe74d2b454354c139ec2de1f253bef20?format=webp&width=800   800w,
+                  https://cdn.builder.io/api/v1/image/assets%2FTEMP%2Fbe74d2b454354c139ec2de1f253bef20?format=webp&width=1200 1200w,
+                  https://cdn.builder.io/api/v1/image/assets%2FTEMP%2Fbe74d2b454354c139ec2de1f253bef20?format=webp&width=1600 1600w,
+                  https://cdn.builder.io/api/v1/image/assets%2FTEMP%2Fbe74d2b454354c139ec2de1f253bef20?format=webp&width=2000 2000w,
+                  https://cdn.builder.io/api/v1/image/assets%2FTEMP%2Fbe74d2b454354c139ec2de1f253bef20
+                "
+                                        type="image/webp" />
+                                <img src="https://cdn.builder.io/api/v1/image/assets%2FTEMP%2Fbe74d2b454354c139ec2de1f253bef20"
+                                     srcset="
+                  https://cdn.builder.io/api/v1/image/assets%2FTEMP%2Fbe74d2b454354c139ec2de1f253bef20?width=100   100w,
+                  https://cdn.builder.io/api/v1/image/assets%2FTEMP%2Fbe74d2b454354c139ec2de1f253bef20?width=200   200w,
+                  https://cdn.builder.io/api/v1/image/assets%2FTEMP%2Fbe74d2b454354c139ec2de1f253bef20?width=400   400w,
+                  https://cdn.builder.io/api/v1/image/assets%2FTEMP%2Fbe74d2b454354c139ec2de1f253bef20?width=800   800w,
+                  https://cdn.builder.io/api/v1/image/assets%2FTEMP%2Fbe74d2b454354c139ec2de1f253bef20?width=1200 1200w,
+                  https://cdn.builder.io/api/v1/image/assets%2FTEMP%2Fbe74d2b454354c139ec2de1f253bef20?width=1600 1600w,
+                  https://cdn.builder.io/api/v1/image/assets%2FTEMP%2Fbe74d2b454354c139ec2de1f253bef20?width=2000 2000w,
+                  https://cdn.builder.io/api/v1/image/assets%2FTEMP%2Fbe74d2b454354c139ec2de1f253bef20
+                "
+                                     class="image" />
+                            </picture>
+                            <div class="builder-image-sizer image-sizer"></div>
+                        </div>
+
+                    </div>
+                    <a class="product-price" style="margin-right: 150px; text-decoration:none">Su & İçecek</a>
+                </div>
+
+            </div>
+        </div>
+    </div>
+    <style>
+        .div-10 {
+            display: flex;
+            max-width: 1518px;
+            justify-content: flex-start;
+            align-items: flex-start;
+        }
+
+        .div-11 {
+            display: flex;
+            flex-direction: row;
+            max-width: 934px;
+            justify-content: flex-start;
+            align-items: flex-start;
+        }
+
+        .div-12 {
+            display: flex;
+            max-width: 240px;
+            height: 584px;
+            width: 240px;
+            border-radius: 8px;
+            box-shadow: 0px 6px 24px 0px rgba(93, 62, 188, 0.03999999910593033);
+        }
+
+        .div-13 {
+            display: flex;
+            max-width: 240px;
+            height: 40px;
+            width: 240px;
+            background-color: rgba(243, 240, 254, 1);
+        }
+
+        .div-14 {
+            display: flex;
+            max-width: 32px;
+            height: 32px;
+            width: 32px;
+            border-radius: 3px;
+            border-color: rgba(25, 25, 25, 0.10000000149011612);
+            border-width: 1px;
+            border-style: solid;
+            padding-top: 0px;
+            margin-top: auto;
+            margin-bottom: auto;
+            margin-right: auto;
+            margin-left: 7px;
+        }
+
+        .div-15 {
+            display: flex;
+            position: relative;
+            min-width: 20px;
+            min-height: 20px;
+            max-width: 30px;
+            width: 30px;
+        }
+
+        .image {
+            object-fit: cover;
+            object-position: center;
+            position: absolute;
+            height: 100%;
+            width: 100%;
+            top: 0;
+            left: 0;
+        }
+
+        .image-sizer {
+            width: 100%;
+            padding-top: 100%;
+            pointer-events: none;
+            font-size: 0;
+        }
+
+        .div-16 {
+            max-width: 77px;
+            color: rgba(25, 25, 25, 1);
+            font-size: 14px;
+            line-height: 18px;
+            letter-spacing: 0%;
+            text-align: left;
+            font-family: Open Sans, sans-serif;
+            margin-top: auto;
+            margin-bottom: auto;
+            margin-right: auto;
+        }
+    </style>
+
+    <div class="flex-product-container" style="flex-grow: 4">
+        @foreach (var product in Model)
+        {
+
+            <div class="product-wrapper" style="border-style: solid; border-color: rgba(1,1,1,0.05); border-width: 0.01em">
+                <a class="plus">
+                    <div class="plus-icon-shadow">
+                        <div class="plus-icon-wrapper">
+                            <div class="plus-icon">
+                                <svg data-testid="icon" name="plus" size="3" color="currentColor" version="1.1" xmlns="http://www.w3.org/2000/svg" viewBox="-8 -8 48 48" class="style__Icon-sc-__sc-hqksj3-1 hORzfG"><path d="M16 32c1.1 0 2-0.9 2-2v-12h12c1.1 0 2-0.9 2-2s-0.9-2-2-2h-12v-12c0-1.1-0.9-2-2-2s-2 0.9-2 2v12h-12c-1.1 0-2 0.9-2 2s0.9 2 2 2h12v12c0 1.1 0.9 2 2 2z" class="style__Path-sc-__sc-hqksj3-2 lcjQMU"></path></svg>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="div-6" style="align-items: center; justify-content: center; justify-items: center">
+                        <img src="@product.Image"
+                         style="max-height: 120px; max-width: 120px" />
+
+                        <div class="builder-image-sizer image-sizer"></div>
+                    </div>
+                    <div class="product-price" style="align-self: center">₺@product.Price</div>
+                    <div class="product-name" style="align-self: center">@product.Name</div>
+                </a>
+            </div>
+
+        }
+    </div>
+    
+    <!-- Main Style -->
+    <style>
+        .product-wrapper {
+            display: flex;
+            width: 100px;
+            height: 250px;
+            justify-content: flex-start;
+            margin-right: auto;
+            margin-left: 10px;
+            flex-flow: wrap;
+            flex-basis: 13%;
+        }
+
+        .plus {
+            display: flex;
+            flex-direction: column;
+            max-width: 500px;
+            justify-content: flex-start;
+            align-items: flex-start;
+            padding-top: 12px;
+            padding-bottom: 12px;
+            padding-right: 9px;
+            padding-left: 0px;
+            background-color: rgba(255, 255, 255, 1);
+            margin-left: 14px;
+        }
+
+        .plus-icon-shadow {
+            display: flex;
+            flex-direction: column;
+            max-width: 54px;
+            justify-content: flex-start;
+            align-items: flex-start;
+            border-radius: 8px;
+            box-shadow: 0px 2px 4px 0px rgba(0, 0, 0, 0.10000000149011612);
+            padding-top: 3px;
+            padding-bottom: 3px;
+            padding-right: 3px;
+            padding-left: 3px;
+            border-color: rgba(0, 0, 0, 0.07999999821186066);
+            border-width: 1px;
+            border-style: solid;
+            margin-left: auto;
+        }
+
+        .plus-icon-wrapper {
+            display: flex;
+            flex-direction: row;
+            max-width: 48px;
+            justify-content: flex-start;
+            align-items: flex-start;
+            padding-top: 4px;
+            padding-bottom: 10px;
+            padding-right: 10px;
+            padding-left: 8px;
+        }
+
+        .plus-icon {
+            display: flex;
+            flex-direction: column;
+            position: relative;
+            margin-left: 2px;
+            width: 100%;
+            min-height: 20px;
+            min-width: 20px;
+            overflow: hidden;
+            margin-right: auto;
+            margin-top: 5px;
+            margin-bottom: 0px;
+        }
+
+        .image {
+            object-fit: cover;
+            object-position: center;
+            position: absolute;
+            height: 100%;
+            width: 100%;
+            top: 0;
+            left: 0;
+        }
+
+        .image-sizer {
+            width: 100%;
+            padding-top: 100%;
+            pointer-events: none;
+            font-size: 0;
+        }
+
+        .div-6 {
+            display: flex;
+            position: relative;
+            min-width: 20px;
+            min-height: 20px;
+            max-width: 120px;
+            width: 120px;
+            margin-bottom: 18px;
+            flex-direction: row;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .product-price {
+            max-width: 44px;
+            color: rgba(93, 62, 188, 1);
+            font-size: 13px;
+            line-height: 18px;
+            letter-spacing: 2%;
+            text-align: right;
+            font-family: Open Sans, sans-serif;
+        }
+
+        .product-name {
+            max-width: 87px;
+            color: rgba(25, 25, 25, 1);
+            font-size: 14px;
+            line-height: 18px;
+            letter-spacing: 0%;
+            text-align: center;
+            font-family: Open Sans, sans-serif;
+        }
+    </style>
+    
+
+    <script>
+        (() => {
+            const state = {};
+
+            // Function to update data bindings and loops
+            // call update() when you mutate state and need the updates to reflect
+            // in the dom
+            function update() {
+                document.querySelectorAll("[data-name='image']").forEach((el) => {
+                    el.loading = "lazy";
+                });
+            }
+
+            // Update with initial state on first load
+            update();
+        })();
+    </script>
+</div>
