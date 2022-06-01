@@ -11,7 +11,6 @@
         align-content: center;
         flex-direction: row;
         margin-top: 5%;
-    
     }
 
     .flex-product-container {
@@ -31,12 +30,10 @@
         max-width: 300px;
         justify-content: flex-start;
         align-items: center;
-       
     }
 
     .div-10 {
         display: flex;
-    
         justify-content: flex-start;
         align-items: flex-start;
         margin-right: 2%;
@@ -45,7 +42,6 @@
 </style>
 
 <!-- TODO: Add Search Box -->
-
 <!-- Categories -->
 <!-- TODO: Add Category foreach-->
 <div class="flex-container">
@@ -91,14 +87,14 @@
             </div>
         </div>
     </div>
-   
+
     <!-- Products -->
     <div class="flex-product-container">
         @foreach (var product in Model)
         {
 
-            <div class="product-wrapper" style="border-style: solid; border-color: rgba(1,1,1,0.05); border-width: 0.01em">
-                <a class="plus">
+            <div class="product-wrapper">
+                <a class="plus"asp-action="Details" asp-route-productId="@product.Id">
                     <div class="plus-icon-shadow">
                         <div class="plus-icon-wrapper">
                             <div class="plus-icon">
@@ -106,22 +102,26 @@
                             </div>
                         </div>
                     </div>
-                    <div class="div-6" style="align-items: center; justify-content: center; justify-items: center">
-                        <img src="@product.Image"
-                         style="max-height: 120px; max-width: 120px; align-self: center;" />
-
-                        <div class="builder-image-sizer image-sizer"></div>
-                    </div>
-                    <div class="product-price" style="align-self: center; text-decoration: none">₺@product.Price</div>
-                    <div class="product-name" style="align-self: center; text-decoration: none">@product.Name</div>
                 </a>
+                <div class="div-6" style="align-items: center; justify-content: center; justify-items: center">
+
+                    <img src="@product.Image"
+                     style="max-height: 120px; max-width: 120px; align-self: center;" />
+
+                    <div class="builder-image-sizer image-sizer"></div>
+                </div>
+
+                <div class="product-price" style="align-self: center; text-decoration: none">₺@product.Price</div>
+                <br/><br/>
+                <div class="product-name" style="align-self: center; text-decoration: none">@product.Name</div>
+
             </div>
 
         }
-       
+
 
     </div>
-    
+
     <!-- Cart -->
 
     <div class="cart-box">
@@ -136,7 +136,7 @@
     </div>
     <!-- Cart Style-->
     <style>
-       
+
         .cart-text {
             max-width: 55px;
             color: rgba(25, 25, 25, 1);
@@ -146,6 +146,7 @@
             text-align: left;
             font-family: Open Sans, sans-serif;
         }
+
         .cart {
             display: flex;
             max-width: 300px;
@@ -158,6 +159,7 @@
             border-style: solid;
             background-color: rgba(255, 255, 255, 1);
         }
+
         .cart-empty-text {
             max-width: 148px;
             color: rgba(93, 62, 188, 1);
@@ -167,6 +169,7 @@
             text-align: left;
             font-family: Open Sans, sans-serif;
         }
+
         .product-add-warning {
             max-width: 227px;
             color: rgba(105, 116, 136, 1);
@@ -181,26 +184,26 @@
     <style>
         .product-wrapper {
             display: flex;
+         
             width: 100px;
             height: 250px;
             justify-content: center;
             flex-wrap: wrap;
             flex-basis: 20%;
-          
+            margin-right: 1%;
+            border-style: solid;
+            border-color: rgba(1,1,1,0.05);
+            border-width: 0.01em;
         }
 
         .plus {
             display: flex;
             flex-direction: column;
-            max-width: 500px;
             justify-content: flex-start;
             align-items: flex-start;
-            padding-top: 12px;
-            padding-bottom: 12px;
-            width: 100%;
-            padding-left: 0px;
             background-color: rgba(255, 255, 255, 1);
-         
+            align-self: flex-end;
+            margin-left: 50%;
         }
 
         .plus-icon-shadow {
@@ -287,7 +290,6 @@
             letter-spacing: 2%;
             text-align: center;
             font-family: Open Sans, sans-serif;
-
         }
 
         .product-name {
@@ -302,7 +304,7 @@
     </style>
     <!-- Categories Style-->
     <style>
-    
+
 
         .div-11 {
             display: flex;
