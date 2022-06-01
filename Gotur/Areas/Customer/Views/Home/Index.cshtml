@@ -10,9 +10,9 @@
         justify-content: center;
         align-content: center;
         flex-direction: row;
-        margin-top: 10%;
+        margin-top: 5%;
     
-           }
+    }
 
     .flex-product-container {
         display: flex;
@@ -22,29 +22,32 @@
         flex-wrap: wrap;
         flex-grow: 1;
         height: 100%;
-        margin-right: 1%;
+        margin-right: 2%;
     }
 
-     .cart-box {
-            display: flex;
-            flex-direction: column;
-            max-width: 300px;
-            justify-content: flex-start;
-            align-items: center;
+    .cart-box {
+        display: flex;
+        flex-direction: column;
+        max-width: 300px;
+        justify-content: flex-start;
+        align-items: center;
        
-        }
+    }
 
     .div-10 {
         display: flex;
     
         justify-content: flex-start;
         align-items: flex-start;
-        margin-right: 10px;
+        margin-right: 2%;
         height: 100%;
     }
 </style>
 
+<!-- TODO: Add Search Box -->
+
 <!-- Categories -->
+<!-- TODO: Add Category foreach-->
 <div class="flex-container">
     <div class="div-10" style="box-shadow: 0.1em  0.1em 0.1em 0.1em rgba(0,0,0,0.1);">
         <div class="div-11">
@@ -120,9 +123,12 @@
     </div>
     
     <!-- Cart -->
+
     <div class="cart-box">
         <div class="cart-text">Sepetim</div>
-        <div class="cart"></div>
+        <div class="cart">
+            <!-- TODO: Add orders -->
+        </div>
         <div class="cart-empty-text">Sepetiniz şu an boş</div>
         <div class="product-add-warning">
             Sipariş vermek için sepetinize ürün ekleyin
@@ -177,9 +183,9 @@
             display: flex;
             width: 100px;
             height: 250px;
-            justify-content: flex-start;
+            justify-content: center;
             flex-wrap: wrap;
-            flex-basis: 25%;
+            flex-basis: 20%;
           
         }
 
@@ -249,6 +255,7 @@
             width: 100%;
             top: 0;
             left: 0;
+            align-self: center;
         }
 
         .image-sizer {
@@ -256,6 +263,7 @@
             padding-top: 100%;
             pointer-events: none;
             font-size: 0;
+            align-self: center;
         }
 
         .div-6 {

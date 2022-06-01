@@ -94,12 +94,13 @@
 
   </div>
 
-  <div class="div-4">
-    <div class="div-5">
-      <div class="div-6">
-        <picture>
-          <source
-            srcset="
+    <div class="div-4">
+        @if(!SignInManager.IsSignedIn(User)){
+        <div class="div-5">
+            <div class="div-6">
+                <picture>
+                    <source
+                        srcset="
               https://cdn.builder.io/api/v1/image/assets%2FTEMP%2F03fe1ee167f8482eac6ff51f940ad0c5?format=webp&width=100   100w,
               https://cdn.builder.io/api/v1/image/assets%2FTEMP%2F03fe1ee167f8482eac6ff51f940ad0c5?format=webp&width=200   200w,
               https://cdn.builder.io/api/v1/image/assets%2FTEMP%2F03fe1ee167f8482eac6ff51f940ad0c5?format=webp&width=400   400w,
@@ -109,11 +110,10 @@
               https://cdn.builder.io/api/v1/image/assets%2FTEMP%2F03fe1ee167f8482eac6ff51f940ad0c5?format=webp&width=2000 2000w,
               https://cdn.builder.io/api/v1/image/assets%2FTEMP%2F03fe1ee167f8482eac6ff51f940ad0c5
             "
-            type="image/webp"
-          />
-          <img
-            src="https://cdn.builder.io/api/v1/image/assets%2FTEMP%2F03fe1ee167f8482eac6ff51f940ad0c5"
-            srcset="
+                        type="image/webp"/>
+                    <img
+                        src="https://cdn.builder.io/api/v1/image/assets%2FTEMP%2F03fe1ee167f8482eac6ff51f940ad0c5"
+                        srcset="
               https://cdn.builder.io/api/v1/image/assets%2FTEMP%2F03fe1ee167f8482eac6ff51f940ad0c5?width=100   100w,
               https://cdn.builder.io/api/v1/image/assets%2FTEMP%2F03fe1ee167f8482eac6ff51f940ad0c5?width=200   200w,
               https://cdn.builder.io/api/v1/image/assets%2FTEMP%2F03fe1ee167f8482eac6ff51f940ad0c5?width=400   400w,
@@ -123,22 +123,22 @@
               https://cdn.builder.io/api/v1/image/assets%2FTEMP%2F03fe1ee167f8482eac6ff51f940ad0c5?width=2000 2000w,
               https://cdn.builder.io/api/v1/image/assets%2FTEMP%2F03fe1ee167f8482eac6ff51f940ad0c5
             "
-            class="image"
-            style="margin-top: 8px"
-          />
-        </picture>
-        <div class="builder-image-sizer image-sizer-3"></div>
-      </div>
-    </div>
-    @if (!SignInManager.IsSignedIn(User))
-    {
-      <a class="div-9" style="text-decoration: none; min-width: 80px" asp-area="Identity" asp-page="/Account/Login">Giriş Yap</a>
-    }
-    <div class="div-7">
-      <div class="div-8">
-        <picture>
-          <source
-            srcset="
+                        class="image"
+                        style="margin-top: 8px"/>
+                </picture>
+                <div class="builder-image-sizer image-sizer-3"></div>
+            </div>
+
+        </div>
+        }
+        @if (!SignInManager.IsSignedIn(User))
+        {
+            <a class="div-9" style="text-decoration: none; min-width: 80px" asp-area="Identity" asp-page="/Account/Login">Giriş Yap</a>
+             <div class="div-7">
+            <div class="div-8">
+                <picture>
+                    <source
+                        srcset="
               https://cdn.builder.io/api/v1/image/assets%2FTEMP%2F41cc95cb692f4656a69253deaa636031?format=webp&width=100   100w,
               https://cdn.builder.io/api/v1/image/assets%2FTEMP%2F41cc95cb692f4656a69253deaa636031?format=webp&width=200   200w,
               https://cdn.builder.io/api/v1/image/assets%2FTEMP%2F41cc95cb692f4656a69253deaa636031?format=webp&width=400   400w,
@@ -148,11 +148,10 @@
               https://cdn.builder.io/api/v1/image/assets%2FTEMP%2F41cc95cb692f4656a69253deaa636031?format=webp&width=2000 2000w,
               https://cdn.builder.io/api/v1/image/assets%2FTEMP%2F41cc95cb692f4656a69253deaa636031
             "
-            type="image/webp"
-          />
-          <img
-            src="https://cdn.builder.io/api/v1/image/assets%2FTEMP%2F41cc95cb692f4656a69253deaa636031"
-            srcset="
+                        type="image/webp"/>
+                    <img
+                        src="https://cdn.builder.io/api/v1/image/assets%2FTEMP%2F41cc95cb692f4656a69253deaa636031"
+                        srcset="
               https://cdn.builder.io/api/v1/image/assets%2FTEMP%2F41cc95cb692f4656a69253deaa636031?width=100   100w,
               https://cdn.builder.io/api/v1/image/assets%2FTEMP%2F41cc95cb692f4656a69253deaa636031?width=200   200w,
               https://cdn.builder.io/api/v1/image/assets%2FTEMP%2F41cc95cb692f4656a69253deaa636031?width=400   400w,
@@ -162,30 +161,31 @@
               https://cdn.builder.io/api/v1/image/assets%2FTEMP%2F41cc95cb692f4656a69253deaa636031?width=2000 2000w,
               https://cdn.builder.io/api/v1/image/assets%2FTEMP%2F41cc95cb692f4656a69253deaa636031
             "
-            class="image"
-          />
-        </picture>
-        <div class="builder-image-sizer image-sizer-4"></div>
-      </div>
-    </div>
-    @if (SignInManager.IsSignedIn(User))
-{
-    
-        <a  class="div-9" asp-area="Identity" asp-page="/Account/Manage/Index" title="Manage">Merhaba @User.Identity?.Name!</a>
+                        class="image"/>
+                </picture>
+                <div class="builder-image-sizer image-sizer-4"></div>
+            </div>
+        </div>
+        }
+       
+        @if (SignInManager.IsSignedIn(User))
+        {
 
-        <a  class="div-9" asp-area="Identity" asp-page="/Account/Logout" asp-route-returnUrl="@Url.Action("Index", "Home", new { area = "Customer" })">
-            <button  type="submit" class="nav-link btn btn-link text-dark">Çıkış</button>
-        </a>
-  
-}
-    else
-    {
-      <a class="div-9" style="text-decoration: none; min-width: 80px" asp-area="Identity" asp-page="/Account/Register">Kayıt Ol</a>
-     
-    
-    }
-   
-  </div>
+            <a class="div-9" asp-area="Identity" asp-page="/Account/Manage/Index" title="Manage">Merhaba @User.Identity?.Name!</a>
+
+            <a class="div-9" asp-area="Identity" asp-page="/Account/Logout" asp-route-returnUrl="@Url.Action("Index", "Home", new { area = "Customer" })">
+                <button type="submit" class="nav-link btn btn-link text-dark">Çıkış</button>
+            </a>
+
+        }
+        else
+        {
+            <a class="div-9" style="text-decoration: none; min-width: 80px" asp-area="Identity" asp-page="/Account/Register">Kayıt Ol</a>
+
+
+        }
+
+    </div>
 </header>
 <style>
      

@@ -122,7 +122,7 @@ namespace Gotur.Areas.Identity.Pages.Account
         public async Task OnGetAsync(string returnUrl = null)
         {
             //Admin ve Customer olusturma
-            if (!_roleManager.RoleExistsAsync("Admin").GetAwaiter().GetResult() || !_roleManager.RoleExistsAsync("Customer").GetAwaiter().GetResult())
+            if (!_roleManager.RoleExistsAsync("Admin").GetAwaiter().GetResult())
             {
                 _roleManager.CreateAsync(new IdentityRole("Admin")).GetAwaiter().GetResult();
                 _roleManager.CreateAsync(new IdentityRole("Customer")).GetAwaiter().GetResult();
@@ -140,11 +140,11 @@ namespace Gotur.Areas.Identity.Pages.Account
             {
                 var user = CreateUser();
 
-                await _userStore.SetUserNameAsync(user, Input.Email, CancellationToken.None);
+                await _userStore.SetUserNameAsync(user, Input.FullName, CancellationToken.None);
                 await _emailStore.SetEmailAsync(user, Input.Email, CancellationToken.None);
 
                 //Kullanici bilgilerini register ekraninda alma
-                user.FullName = Input.FullName;
+                user.FullName=Input.FullName;
                 user.Adresses = Input.Adresses;
                 user.CellPhone = Input.CellPhone;
 
