@@ -17,14 +17,12 @@ namespace Gotur.Models
 
         [Key]
         public int Id { get; set; }
-        public string AppUserId { get; set; }
-
-        public int ProductId { get; set; }
         public int Count { get; set; }
         public double Price { get; set; }
 
 
-
+        public string AppUserId { get; set; }
+        public int ProductId { get; set; }
         // İlişkilendirme // 
 
         [ForeignKey("AppUserId")]

@@ -1,0 +1,508 @@
+﻿@using System.Runtime.InteropServices
+@model Gotur.Models.ViewModels.CartVM
+
+<div class="cart-wrapper">
+  <div class="cart-main">
+    <div class="cart-header">
+      <div class="cart-header-text">Sepetim</div>
+      <div class="cart-empty-icon">
+        <picture>
+          <source srcset="https://cdn-icons-png.flaticon.com/512/2602/2602735.png" type="image/webp" />
+          <img class="image" />
+        </picture>
+        <div class="builder-image-sizer image-sizer"></div>
+      </div>
+      <div class="cart-empty-text">Sepeti temizle</div>
+    </div>
+    @foreach (var cart in Model.ListCart)
+    {
+      <div class="product-container">
+        <div class="product-image-container">
+          <div class="product-image">
+            <picture>
+              <source srcset="@cart.Product.Image" type="image/webp" />
+              <img class="image-2" />
+            </picture>
+            <div class="builder-image-sizer image-sizer-2"></div>
+          </div>
+        </div>
+        <div class="product-info">
+          <div class="product-price-text">₺@Math.Round(Model.OrderProduct.OrderPrice,1,MidpointRounding.AwayFromZero)</div>
+          <div class="product-name-text">
+            @cart.Product.Name
+          </div>
+          <div class="product-weight-text">150 gr</div>
+        </div>
+      <div class="product-count">
+          <a onclick=@{ cart.Count++;}>
+          <div class="product-count-2">
+               
+              <picture>
+                  <source srcset="https://cdn-icons-png.flaticon.com/512/2602/2602735.png" type="image/webp"/>
+                  <img class="image"
+                       style="max-width: 25px; max-height: 25px; padding-top: 5px; padding-left: 5px;"/>
+              </picture>
+               
+              <div class="builder-image-sizer image-sizer-3"></div>
+          </div>
+          </a>
+          <div class="product-count-number">@cart.Count</div>
+          <div class="product-count-3">
+            <picture>
+              <source srcset="https://cdn-icons-png.flaticon.com/128/748/748113.png" type="image/webp" />
+              <img class="image"
+                   style="max-width: 25px; max-height: 25px;"/>
+            </picture>
+            <div class="builder-image-sizer image-sizer"></div>
+          </div>
+        </div>
+      </div>
+    }
+  </div>
+  <div class="cart-info">
+    <div class="cart-info-top">
+      <div class="cart-address-header-text">Adres</div>
+      <div class="cart-address">
+        <div class="cart-address-icon">
+          <picture>
+            <source srcset="https://cdn-icons-png.flaticon.com/128/2527/2527686.png" type="image/webp" />
+            <img class="image" />
+          </picture>
+          <div class="builder-image-sizer image-sizer"></div>
+        </div>
+        <div class="cart-adress-text">@Model.OrderProduct.Adress</div>
+      </div>
+    </div>
+    <div class="cart-info-bottom">
+      <div class="cart-info-price-wrapper">
+        <div class="cart-price-sum-header-text">Sepet Toplamı</div>
+        <div class="cart-price-sum">
+            <div class="cart-price-sum-text">Sepet Tutarı</div>
+           
+          <div class="cart-price-text">₺@Math.Round(Model.OrderProduct.OrderPrice,1,MidpointRounding.AwayFromZero)</div>
+        </div>
+      </div>
+      <div class="cart-pay-wrapper">
+        <a class="cart-pay" asp-area="Customer" asp-controller="Cart" asp-action="Order">Ödemeye Geç</a>
+      </div>
+    </div>
+  </div>
+</div>
+<style>
+  .cart-wrapper {
+      display: flex;
+      flex-direction: row;
+      justify-content: center;
+      width: 100%;
+      flex-grow: 0;
+      align-self: stretch;
+      align-items: center;
+      height: auto;
+      margin-top: 5%;
+      margin-bottom: 20%;
+  }
+
+  .cart-main {
+      display: flex;
+      flex-direction: column;
+      max-width: 704px;
+      justify-content: center;
+      padding-right: 77px;
+      margin-right: 55px;
+  }
+
+  .cart-header {
+      display: flex;
+      flex-direction: row;
+      justify-content: flex-end;
+      align-items: center;
+      margin-left: auto;
+      height: 34px;
+      padding-bottom: 23px;
+  }
+
+  .cart-header-text {
+      max-width: 55px;
+      color: rgba(25, 25, 25, 1);
+      font-size: 14px;
+      line-height: 20px;
+      letter-spacing: 0%;
+      text-align: left;
+      font-family: Open Sans, sans-serif;
+      margin-right: auto;
+      padding-right: 598px;
+  }
+
+  .cart-empty-icon {
+      display: flex;
+      position: relative;
+      min-width: 20px;
+      min-height: 20px;
+      max-width: 20px;
+      width: 20px;
+      margin-left: auto;
+      margin-right: 3px;
+  }
+
+  .image {
+      object-fit: cover;
+      object-position: center;
+      position: absolute;
+      height: 100%;
+      width: 100%;
+      top: 0;
+      left: 0;
+  }
+
+  .image-sizer {
+      width: 100%;
+      padding-top: 100%;
+      pointer-events: none;
+      font-size: 0;
+  }
+
+  .cart-empty-text {
+      max-width: 88px;
+      color: rgba(93, 62, 188, 1);
+      font-size: 13px;
+      line-height: 16px;
+      text-align: center;
+      font-family: Open Sans, sans-serif;
+      width: 100px;
+      flex-grow: 0;
+  }
+
+  .product-container {
+      display: flex;
+      max-width: 704px;
+      height: 118px;
+      width: 704px;
+      border-radius: 8px;
+      box-shadow: 0px 6px 24px 0px rgba(93, 62, 188, 0.03999999910593033);
+      background-color: rgba(255, 255, 255, 1);
+  }
+
+  .product-image-container {
+      display: flex;
+      max-width: 70px;
+      height: 70px;
+      width: 70px;
+      border-radius: 12px;
+      border-color: rgba(243, 240, 254, 1);
+      border-width: 1px;
+      border-style: solid;
+      margin-top: auto;
+      margin-bottom: auto;
+      margin-left: 55px;
+  }
+
+  .product-image {
+      display: flex;
+      position: relative;
+      min-width: 20px;
+      min-height: 20px;
+      max-width: 100%;
+      width: 100%;
+      margin-left: 0px;
+      height: 100%;
+      margin-top: auto;
+      margin-bottom: auto;
+      max-height: 100%;
+  }
+
+  .image-2 {
+      object-fit: contain;
+      object-position: center;
+      position: absolute;
+      height: 100%;
+      width: 100%;
+      top: 0;
+      left: 0;
+  }
+
+  .image-sizer-2 {
+      width: 100%;
+      padding-top: -194.34%;
+      pointer-events: none;
+      font-size: 0;
+  }
+
+  .product-info {
+      display: flex;
+      flex-direction: column;
+      position: relative;
+      margin-left: 20px;
+      width: 300px;
+      margin-top: auto;
+      margin-bottom: auto;
+      max-width: 486px;
+  }
+
+  .product-price-text {
+      max-width: 47px;
+      color: rgba(93, 62, 188, 1);
+      font-size: 14px;
+      line-height: 20px;
+      letter-spacing: 0%;
+      text-align: center;
+      font-family: Open Sans, sans-serif;
+      padding-bottom: 13px;
+  }
+
+  .product-name-text {
+      max-width: 252px;
+      color: rgba(62, 62, 62, 1);
+      font-size: 14px;
+      line-height: 19px;
+      letter-spacing: 0%;
+      text-align: left;
+      font-family: Open Sans, sans-serif;
+  }
+
+  .product-weight-text {
+      max-width: 38px;
+      color: rgba(105, 116, 136, 1);
+      font-size: 12px;
+      line-height: 18px;
+      letter-spacing: 0%;
+      text-align: center;
+      font-family: Open Sans, sans-serif;
+  }
+
+  .product-count {
+      border-radius: 8px;
+      box-shadow: 0px 2px 4px 0px rgba(0, 0, 0, 0.10000000149011612);
+      border-color: rgba(0, 0, 0, 0.07999999821186066);
+      border-width: 1px;
+      border-style: solid;
+      margin-left: auto;
+      padding-right: 0px;
+      margin-right: 26px;
+      justify-content: center;
+      align-self: center;
+      flex-grow: 0;
+      width: 91.363px;
+      max-width: 500px;
+      max-height: 504px;
+      flex-direction: row;
+      display: flex;
+      height: 37px;
+      align-items: center;
+  }
+
+  .product-count-2 {
+      display: flex;
+      position: relative;
+      width: 30px;
+      height: 30px;
+      align-self: flex-end;
+      padding-left: 0px;
+      margin-top: auto;
+      margin-bottom: auto;
+  }
+
+  .image-sizer-3 {
+      width: 100%;
+      padding-top: 109.99518657555736%;
+      pointer-events: none;
+      font-size: 0;
+  }
+
+  .product-count-number {
+      display: flex;
+      height: 100%;
+      background-color: rgba(93, 62, 188, 1);
+      align-self: center;
+      flex-grow: 1;
+      width: 100%;
+      padding-left: 0px;
+      max-width: 40%;
+      color: rgba(255, 255, 255, 1);
+      font-size: 14px;
+      line-height: 21px;
+      letter-spacing: 0%;
+      text-align: left;
+      font-family: Open Sans, sans-serif;
+      margin-left: auto;
+      margin-right: auto;
+      max-height: 500px;
+      padding-left: 15%;
+      padding-top: 9%;
+  }
+
+  .product-count-3 {
+      display: flex;
+      position: relative;
+      width: 20px;
+      height: 20px;
+      align-self: flex-end;
+   
+      max-height: 82px;
+      margin-top: auto;
+      margin-bottom: auto;
+      padding-top: 0px;
+      padding-left: 0px;
+      padding-bottom: 0px;
+  }
+
+  .cart-info {
+      display: flex;
+      flex-direction: column;
+      position: relative;
+      margin-top: 20px;
+      height: 200px;
+  }
+
+  .cart-info-top {
+      display: flex;
+      flex-direction: column;
+      max-width: 296px;
+      justify-content: center;
+  }
+
+  .cart-address-header-text {
+      max-width: 39px;
+      color: rgba(25, 25, 25, 1);
+      font-size: 14px;
+      line-height: 20px;
+      letter-spacing: 0%;
+      text-align: left;
+      font-family: Open Sans, sans-serif;
+  }
+
+  .cart-address {
+      display: flex;
+      max-width: 296px;
+      height: 56px;
+      width: 296px;
+      border-radius: 8px;
+      box-shadow: 0px 6px 24px 0px rgba(93, 62, 188, 0.03999999910593033);
+      background-color: rgba(255, 255, 255, 1);
+      margin-top: 13px;
+  }
+
+  .cart-address-icon {
+      display: flex;
+      position: relative;
+      min-width: 20px;
+      min-height: 3px;
+      max-width: 6px;
+      width: 100%;
+      flex-grow: 0;
+      height: auto;
+      align-self: center;
+      margin-left: 32px;
+  }
+
+  .cart-adress-text {
+      max-width: 224px;
+      color: rgba(25, 25, 25, 1);
+      font-size: 13px;
+      line-height: 21px;
+      letter-spacing: 0%;
+      text-align: left;
+      font-family: Open Sans, sans-serif;
+      margin-top: auto;
+      margin-bottom: auto;
+      margin-left: auto;
+  }
+
+  .cart-info-bottom {
+      display: flex;
+      flex-direction: column;
+      position: relative;
+      margin-top: 20px;
+      height: 200px;
+  }
+
+  .cart-info-price-wrapper {
+      display: flex;
+      flex-direction: column;
+      max-width: 296px;
+      justify-content: center;
+  }
+
+  .cart-price-sum-header-text {
+      max-width: 96px;
+      color: rgba(25, 25, 25, 1);
+      font-size: 14px;
+      line-height: 20px;
+      letter-spacing: 0%;
+      text-align: left;
+      font-family: Open Sans, sans-serif;
+  }
+
+  .cart-price-sum {
+      display: flex;
+      max-width: 296px;
+      height: 67px;
+      width: 296px;
+      border-radius: 8px;
+      box-shadow: 0px 6px 24px 0px rgba(93, 62, 188, 0.03999999910593033);
+      background-color: rgba(255, 255, 255, 1);
+  }
+
+  .cart-price-sum-text {
+      max-width: 82px;
+      color: rgba(62, 62, 62, 1);
+      font-size: 14px;
+      line-height: 18px;
+      letter-spacing: 0%;
+      text-align: left;
+      font-family: Open Sans, sans-serif;
+      margin-top: auto;
+      margin-bottom: auto;
+      margin-left: 23px;
+  }
+
+  .cart-price-text {
+      max-width: 44px;
+      color: rgba(105, 116, 136, 1);
+      font-size: 13px;
+      line-height: 19px;
+      letter-spacing: 0%;
+      text-align: left;
+      font-family: Open Sans, sans-serif;
+      margin-top: auto;
+      margin-bottom: auto;
+      margin-left: auto;
+      margin-right: 28px;
+  }
+
+  .cart-pay-wrapper {
+      display: flex;
+      flex-direction: column;
+      max-width: 296px;
+      justify-content: center;
+      border-radius: 8px;
+      box-shadow: 0px 2px 6px 0px rgba(105, 116, 136, 0.15000000596046448);
+      padding-top: 2px;
+      padding-bottom: 2px;
+      padding-right: 2px;
+      padding-left: 2px;
+      border-color: rgba(93, 62, 188, 1);
+      border-width: 2px;
+      border-style: solid;
+      background-color: rgba(93, 62, 188, 1);
+      margin-top: 22px;
+  }
+
+  .cart-pay {
+      display: flex;
+      max-width: 94px;
+      height: 44px;
+      width: 292px;
+      background-color: rgba(93, 62, 188, 1);
+      color: rgba(255, 255, 255, 1);
+      font-size: 14px;
+      line-height: 16px;
+      letter-spacing: 0%;
+      text-align: center;
+      font-family: Open Sans, sans-serif;
+      padding-top: 5%;
+      margin-top: auto;
+      margin-bottom: auto;
+      margin-left: auto;
+      margin-right: auto;
+  }
+</style>

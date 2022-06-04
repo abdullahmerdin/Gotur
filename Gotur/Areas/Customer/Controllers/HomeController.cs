@@ -1,6 +1,7 @@
 ﻿using System.Security.Claims;
 using Gotur.Data.Repository.IRepository;
 using Gotur.Models;
+using Gotur.Models.ViewModels;
 using Microsoft.AspNetCore.Mvc;
 
 namespace Gotur.Areas.Customer.Controllers
@@ -19,6 +20,7 @@ namespace Gotur.Areas.Customer.Controllers
         {
             IEnumerable<Product> products = _unitOfWork.Product.GetAll(includeProperties: "Category");
             return View(products);
+            
         }
 
         // Details ekranina category ile birlikte product bilgilerini gonder //

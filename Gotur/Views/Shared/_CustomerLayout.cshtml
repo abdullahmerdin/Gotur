@@ -20,11 +20,11 @@
   <div class="div"></div>
   <div class="box-2">
    
-    <div class="div-2">
-      <a asp-area="Customer" asp-controller="Home" asp-action="Index">
-      <picture>
-        <source
-          srcset="
+      <div class="div-2">
+          <a asp-area="Customer" asp-controller="Home" asp-action="Index">
+              <picture>
+                  <source
+                      srcset="
             https://cdn.builder.io/api/v1/image/assets%2FTEMP%2F785160ee8db0403ba1dad21f250e6f45?format=webp&width=100   100w,
             https://cdn.builder.io/api/v1/image/assets%2FTEMP%2F785160ee8db0403ba1dad21f250e6f45?format=webp&width=200   200w,
             https://cdn.builder.io/api/v1/image/assets%2FTEMP%2F785160ee8db0403ba1dad21f250e6f45?format=webp&width=400   400w,
@@ -34,12 +34,12 @@
             https://cdn.builder.io/api/v1/image/assets%2FTEMP%2F785160ee8db0403ba1dad21f250e6f45?format=webp&width=2000 2000w,
             https://cdn.builder.io/api/v1/image/assets%2FTEMP%2F785160ee8db0403ba1dad21f250e6f45
           "
-          type="image/webp"
-        />
+                      type="image/webp"
+                  />
        
-        <img
-          src="https://cdn.builder.io/api/v1/image/assets%2FTEMP%2F785160ee8db0403ba1dad21f250e6f45"
-          srcset="
+                  <img
+                      src="https://cdn.builder.io/api/v1/image/assets%2FTEMP%2F785160ee8db0403ba1dad21f250e6f45"
+                      srcset="
             https://cdn.builder.io/api/v1/image/assets%2FTEMP%2F785160ee8db0403ba1dad21f250e6f45?width=100   100w,
             https://cdn.builder.io/api/v1/image/assets%2FTEMP%2F785160ee8db0403ba1dad21f250e6f45?width=200   200w,
             https://cdn.builder.io/api/v1/image/assets%2FTEMP%2F785160ee8db0403ba1dad21f250e6f45?width=400   400w,
@@ -49,17 +49,17 @@
             https://cdn.builder.io/api/v1/image/assets%2FTEMP%2F785160ee8db0403ba1dad21f250e6f45?width=2000 2000w,
             https://cdn.builder.io/api/v1/image/assets%2FTEMP%2F785160ee8db0403ba1dad21f250e6f45
           "
-          class="image"
-        />
+                      class="image"
+                  />
         
-      </picture>
+              </picture>
       
-      <div class="builder-image-sizer image-sizer"></div>
-      <div class="image-contents">
-        <div class="div-3">
-          <picture>
-            <source
-              srcset="
+              <div class="builder-image-sizer image-sizer"></div>
+              <div class="image-contents">
+                  <div class="div-3">
+                      <picture>
+                          <source
+                              srcset="
                 https://cdn.builder.io/api/v1/image/assets%2FTEMP%2F480be2bc5f464e078d64e66522acce7b?format=webp&width=100   100w,
                 https://cdn.builder.io/api/v1/image/assets%2FTEMP%2F480be2bc5f464e078d64e66522acce7b?format=webp&width=200   200w,
                 https://cdn.builder.io/api/v1/image/assets%2FTEMP%2F480be2bc5f464e078d64e66522acce7b?format=webp&width=400   400w,
@@ -69,11 +69,11 @@
                 https://cdn.builder.io/api/v1/image/assets%2FTEMP%2F480be2bc5f464e078d64e66522acce7b?format=webp&width=2000 2000w,
                 https://cdn.builder.io/api/v1/image/assets%2FTEMP%2F480be2bc5f464e078d64e66522acce7b
               "
-              type="image/webp"
-            />
-            <img
-              src="https://cdn.builder.io/api/v1/image/assets%2FTEMP%2F480be2bc5f464e078d64e66522acce7b"
-              srcset="
+                              type="image/webp"
+                          />
+                          <img
+                              src="https://cdn.builder.io/api/v1/image/assets%2FTEMP%2F480be2bc5f464e078d64e66522acce7b"
+                              srcset="
                 https://cdn.builder.io/api/v1/image/assets%2FTEMP%2F480be2bc5f464e078d64e66522acce7b?width=100   100w,
                 https://cdn.builder.io/api/v1/image/assets%2FTEMP%2F480be2bc5f464e078d64e66522acce7b?width=200   200w,
                 https://cdn.builder.io/api/v1/image/assets%2FTEMP%2F480be2bc5f464e078d64e66522acce7b?width=400   400w,
@@ -83,17 +83,58 @@
                 https://cdn.builder.io/api/v1/image/assets%2FTEMP%2F480be2bc5f464e078d64e66522acce7b?width=2000 2000w,
                 https://cdn.builder.io/api/v1/image/assets%2FTEMP%2F480be2bc5f464e078d64e66522acce7b
               "
-              class="image"
-            />
-          </picture>
-          <div class="builder-image-sizer image-sizer-2"></div>
-        </div>
+                              class="image"
+                          />
+                      </picture>
+                      <div class="builder-image-sizer image-sizer-2"></div>
+                  </div>
+              </div>
+          </a>
       </div>
-    </a>
-    </div>
+     
+      <ul style="padding-left: 80px; list-style: none;">
+          <li class="nav-item dropdown">
+              <a class="nav-link dropdown-toggle"
+                 data-bs-toggle="dropdown"
+                 href="#"
+                 role="button"
+                 aria-haspopup="true"
+                 aria-expanded="false">
+                  Admin Menu</a>
+              <div class="dropdown-menu">
+                  
+               
+                  <a class="dropdown-item" asp-area="Admin" asp-controller="Home" asp-action="Index">Anasayfa</a>
+                  <div class="dropdown-divider"></div>
+                 
+                  <a class="dropdown-item" asp-area="Admin" asp-controller="Category" asp-action="">Kategoriler</a>
+                          
+                  <a class="dropdown-item" asp-area="Admin" asp-controller="Product" asp-action="">Ürünler</a>
+                  <div class="dropdown-divider"></div>
 
+                  <a class="dropdown-item" asp-area="Identity" asp-page="/Account/Register">Yeni Kullanıcı</a>
+                  
+              </div>
+
+          </li>
+      </ul>
+      
+      <ul style="padding-left: 80px; list-style: none;">
+          <a class="nav-link dropdown-toggle"
+             data-bs-toggle="dropdown"
+             href="#"
+             role="button"
+             aria-haspopup="true"
+             aria-expanded="false">
+              Kullanıcı Menu</a>
+          <div class="dropdown-menu">
+              <a class="dropdown-item" asp-area="Customer" asp-controller="Cart" asp-action="Index">Sepet</a>
+
+          </div>
+
+      </ul>
   </div>
-
+  
     <div class="div-4">
         @if(!SignInManager.IsSignedIn(User)){
         <div class="div-5">
@@ -214,24 +255,26 @@
     }
     .box-2 {
         display: flex;
-        flex-direction: column;
+        flex-direction: row;
         max-width: 75px;
         justify-content: flex-start;
         align-items: flex-start;
         margin-left: 0px;
         height: 39px;
-        margin-top: 20px;
-        margin-bottom: auto;
+        margin-top: 15px;
+        margin-bottom: 5px;
+        
+
     }
     .div-2 {
         display: flex;
         position: relative;
-        min-width: 20px;
+        min-width: 100px;
         min-height: 38px;
-        max-width: 86px;
-        width: 165px;
+        max-width: 100px;
+        width: 100px;
         margin-right: auto;
-        height: 93px;
+        margin-top: 8px;
         max-height: 500px;
         border-radius: 166px;
     }
@@ -359,6 +402,7 @@
         justify-content: flex-start;
         align-items: flex-start;
         margin-left: 0;
+        margin-right:30px;
         padding-top: 10px;
         padding-bottom: 10px;
         padding-right: 10px;

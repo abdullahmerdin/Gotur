@@ -29,7 +29,7 @@ namespace Gotur.Areas.Admin.Controllers
         //Ürün oluşturma ve güncelleme
         public IActionResult Crup(int? id)
         {
-            ProductVM productVM = new()
+            ProductVM productVm = new()
             {
                 Product = new(),
                 CategoryList = _unitOfWork.Category.GetAll().Select(
@@ -42,19 +42,19 @@ namespace Gotur.Areas.Admin.Controllers
             };
             if (id == null || id <= 0)
             {
-                return View(productVM);
+                return View(productVm);
             }
 
-            productVM.Product = _unitOfWork.Product.GetFirstOrDefault(x => x.Id == id);
-            if (productVM.Product == null)
+            productVm.Product = _unitOfWork.Product.GetFirstOrDefault(x => x.Id == id);
+            if (productVm.Product == null)
             {
-                return View(productVM);
+                return View(productVm);
             }
 
-            return View(productVM);
+            return View(productVm);
         }
         [HttpPost]
-        public IActionResult Crup(ProductVM productVM, IFormFile file)
+        public IActionResult Crup(ProductVM productVm, IFormFile file)
         {
             //Image
             string wwwRootPath = _hostEnvironment.WebRootPath;
@@ -68,9 +68,9 @@ namespace Gotur.Areas.Admin.Controllers
                 var extension = Path.GetExtension(file.FileName);
 
                 //Fotoğraf güncelleme
-                if (productVM.Product.Image != null)
+                if (productVm.Product.Image != null)
                 {
-                    var oldPicPath = Path.Combine(wwwRootPath, productVM.Product.Image);
+                    var oldPicPath = Path.Combine(wwwRootPath, productVm.Product.Image);
                     if (System.IO.File.Exists(oldPicPath))
                     {
                         System.IO.File.Delete(oldPicPath);
@@ -85,19 +85,19 @@ namespace Gotur.Areas.Admin.Controllers
                     file.CopyTo(fileStream);
                 }
 
-                productVM.Product.Image = @"\img\products\" + fileName + extension;
+                productVm.Product.Image = @"\img\products\" + fileName + extension;
 
 
             }
 
-            if (productVM.Product.Id <= 0)
+            if (productVm.Product.Id <= 0)
             {
-                _unitOfWork.Product.Add(productVM.Product);
+                _unitOfWork.Product.Add(productVm.Product);
 
             }
             else
             {
-                _unitOfWork.Product.Update(productVM.Product);
+                _unitOfWork.Product.Update(productVm.Product);
             }
             _unitOfWork.Save();
             return RedirectToAction("Index");

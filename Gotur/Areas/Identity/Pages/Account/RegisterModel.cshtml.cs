@@ -10,10 +10,8 @@ using System.Text;
 using System.Text.Encodings.Web;
 using System.Threading;
 using System.Threading.Tasks;
-using Gotur.Models;
-using Gotur.Data;
-using Gotur.Data.Repository;
 using Gotur.Data.Repository.IRepository;
+using Gotur.Models;
 using Microsoft.AspNetCore.Authentication;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Identity;
@@ -36,8 +34,6 @@ namespace Gotur.Areas.Identity.Pages.Account
         private readonly RoleManager<IdentityRole> _roleManager;
         private readonly IUnitOfWork _unitOfWork;
 
-
-
         public RegisterModel(
             UserManager<IdentityUser> userManager,
             IUserStore<IdentityUser> userStore,
@@ -45,8 +41,8 @@ namespace Gotur.Areas.Identity.Pages.Account
             ILogger<RegisterModel> logger,
             IEmailSender emailSender,
             RoleManager<IdentityRole> roleManager,
-            IUnitOfWork unitOfWork)
-
+            IUnitOfWork unitOfWork
+            )
         {
             _unitOfWork = unitOfWork;
             _roleManager = roleManager;
@@ -111,22 +107,23 @@ namespace Gotur.Areas.Identity.Pages.Account
             [Compare("Password", ErrorMessage = "The password and confirmation password do not match.")]
             public string ConfirmPassword { get; set; }
 
+            [Required]
             public string FullName { get; set; }
-            public string Adresses { get; set; }
-
+            public string Address { get; set; }
+            public string PostalCode { get; set; }
             public string CellPhone { get; set; }
-
         }
 
 
         public async Task OnGetAsync(string returnUrl = null)
         {
-            //Admin ve Customer olusturma
             if (!_roleManager.RoleExistsAsync("Admin").GetAwaiter().GetResult())
             {
                 _roleManager.CreateAsync(new IdentityRole("Admin")).GetAwaiter().GetResult();
                 _roleManager.CreateAsync(new IdentityRole("Customer")).GetAwaiter().GetResult();
             }
+
+
 
             ReturnUrl = returnUrl;
             ExternalLogins = (await _signInManager.GetExternalAuthenticationSchemesAsync()).ToList();
@@ -140,18 +137,17 @@ namespace Gotur.Areas.Identity.Pages.Account
             {
                 var user = CreateUser();
 
-                await _userStore.SetUserNameAsync(user, Input.FullName, CancellationToken.None);
+                await _userStore.SetUserNameAsync(user, Input.Email, CancellationToken.None);
                 await _emailStore.SetEmailAsync(user, Input.Email, CancellationToken.None);
 
-                //Kullanici bilgilerini register ekraninda alma
-                user.FullName=Input.FullName;
-                user.Adresses = Input.Adresses;
+                user.FullName = Input.FullName;
+                user.Adresses = Input.Address;
                 user.CellPhone = Input.CellPhone;
-
+         
                 var result = await _userManager.CreateAsync(user, Input.Password);
 
-                //Default kullanici grubu
                 AppUser appUser = _unitOfWork.AppUser.GetFirstOrDefault(x => x.Email == user.Email);
+
                 _userManager.AddToRoleAsync(appUser, "Customer").GetAwaiter().GetResult();
 
                 if (result.Succeeded)

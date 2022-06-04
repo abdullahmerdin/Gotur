@@ -25,4 +25,12 @@
     <Folder Include="wwwroot\img\products\" />
   </ItemGroup>
 
+  <ItemGroup>
+    <UpToDateCheckInput Remove="Areas\Customer\Pages\Cart\Index.cshtml" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <_ContentIncludedByDefault Remove="Areas\Customer\Pages\Cart\Index.cshtml" />
+  </ItemGroup>
+
 </Project>

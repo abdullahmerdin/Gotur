@@ -93,8 +93,8 @@
         @foreach (var product in Model)
         {
 
-            <div class="product-wrapper">
-                <a class="plus"asp-action="Details" asp-route-productId="@product.Id">
+            <div class="product-wrapper bg-white" style="padding-bottom: 5px; margin-bottom: 5px; ">
+                <a class="plus" asp-action="Details" asp-route-productId="@product.Id">
                     <div class="plus-icon-shadow">
                         <div class="plus-icon-wrapper">
                             <div class="plus-icon">
@@ -103,16 +103,16 @@
                         </div>
                     </div>
                 </a>
-                <div class="div-6" style="align-items: center; justify-content: center; justify-items: center">
+                <div class="payment-fee" style="align-items: center; justify-content: center; justify-items: center">
 
                     <img src="@product.Image"
-                     style="max-height: 120px; max-width: 120px; align-self: center;" />
+                     style="max-height: 120px; max-width: 120px;" />
 
                     <div class="builder-image-sizer image-sizer"></div>
                 </div>
 
                 <div class="product-price" style="align-self: center; text-decoration: none">₺@product.Price</div>
-                <br/><br/>
+            
                 <div class="product-name" style="align-self: center; text-decoration: none">@product.Name</div>
 
             </div>
@@ -127,7 +127,7 @@
     <div class="cart-box">
         <div class="cart-text">Sepetim</div>
         <div class="cart">
-            <!-- TODO: Add orders -->
+          
         </div>
         <div class="cart-empty-text">Sepetiniz şu an boş</div>
         <div class="product-add-warning">
@@ -184,7 +184,7 @@
     <style>
         .product-wrapper {
             display: flex;
-         
+            flex-direction: column;
             width: 100px;
             height: 250px;
             justify-content: center;
@@ -194,6 +194,7 @@
             border-style: solid;
             border-color: rgba(1,1,1,0.05);
             border-width: 0.01em;
+            align-items: center;
         }
 
         .plus {
@@ -269,7 +270,7 @@
             align-self: center;
         }
 
-        .div-6 {
+        .payment-fee {
             display: flex;
             position: relative;
             min-width: 20px;

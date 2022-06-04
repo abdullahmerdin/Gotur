@@ -13,6 +13,8 @@ namespace Gotur.Models
         [Key]
         public int Id { get; set; }
         public string AppUserId { get; set; }
+        public string Name { get; set; }
+        public string CellPhone { get; set; }
         public DateTime OrderDate { get; set; }
         public double OrderPrice { get; set; }
         public string OrderStatus { get; set; }

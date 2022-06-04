@@ -11,6 +11,7 @@ namespace Gotur.Models.ViewModels
     {
         public Product Product { get; set; }
         public IEnumerable<SelectListItem> CategoryList { get; set; }
+      
 
     }
 }

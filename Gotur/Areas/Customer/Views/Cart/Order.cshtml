@@ -1,0 +1,460 @@
+﻿@model Gotur.Models.ViewModels.CartVM
+
+<form method="post">
+  <div class="order-wrapper">
+    <div class="order-wrapper-left">
+      <div class="payment-address-wrapper">
+        <div class="paymet-address-header">Adres</div>
+        <div class="payment-address-content">
+          <div class="geo-img">
+            <picture>
+              <source srcset=" https://cdn-icons-png.flaticon.com/128/2527/2527686.png"
+                      type="image/webp" />
+              <img src=""
+                   srcset=""
+                   class="image" />
+            </picture>
+            <div class="builder-image-sizer image-sizer"></div>
+          </div>
+          <div class="payment-address">
+            <div class="payment-address-name">Ev</div>
+            <div class="payment-address-detail">
+              Erenler, Kocaeli
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="payment-note-wrapper">
+        <div class="payment-note-header">Not Ekle</div>
+        <div class="payment-note-box">
+          <p class="payment-note">Sipariş notunu buraya yazabilirsin.</p>
+        </div>
+      </div>
+    </div>
+    <div class="order-wrapper-right">
+      <div class="payment-sum-wrapper">
+        <div class="payment-sum-text">Ödeme Özeti</div>
+        <div class="pymnt">
+          <div class="payment-sum-text-2">Sepet Tutarı</div>
+          @{
+            var sum = Model.OrderProduct.OrderPrice + 8.99 + 0.25;
+          }
+          <div class="payment-sum-final">₺@Math.Round(Model.OrderProduct.OrderPrice,2,MidpointRounding.AwayFromZero)</div>
+        </div>
+        <div class="payment-fee-wrapper"></div>
+        <div class="payment-fee">
+          <div class="payment-fee-text">Getirmesi</div>
+          <div class="payment-fee-value">₺8,99</div>
+        </div>
+        <div class="payment-fee-wrapper"></div>
+        <div class="payment-bag-wrapper">
+          <div class="payment-bag-text">Poşet Ücreti</div>
+          <div class="payment-bag-value">₺0,25</div>
+        </div>
+        <div class="payment-fee-wrapper"></div>
+        <div class="all-sum-wrapper">
+          <div class="all-sum-text">Ödenecek Tutar</div>
+          <div class="all-sum-value">₺@Math.Round(sum,2,MidpointRounding.AwayFromZero)</div>
+        </div>
+      </div>
+      <div class="payment-finalize-wrapper">
+        <button style="border: none" type="submit" value="Place Order" class="payment-finalize-text-wrapper">Sipariş Ver</button>
+        <div class="payment-final-sum-wrapper">₺@Math.Round(sum,2,MidpointRounding.AwayFromZero)</div>
+      </div>
+    </div>
+  </div>
+</form>
+<style>
+  .order-wrapper {
+      display: flex;
+      flex-direction: row;
+      max-width: fit-content;
+      max-height: fit-content;
+      justify-content: center;
+      width: 1707.02px;
+      margin-top: 5%;
+      margin-left: 10%;
+      flex-grow: 0;
+      margin-bottom: 30%;
+  }
+
+  .order-wrapper-left {
+      display: flex;
+      flex-direction: column;
+      position: relative;
+      margin-top: 20px;
+      height: 200px;
+  }
+
+  .payment-address-wrapper {
+      display: flex;
+      flex-direction: column;
+      max-width: 712px;
+      justify-content: center;
+  }
+
+  .paymet-address-header {
+      max-width: 39px;
+      color: rgba(25, 25, 25, 1);
+      font-size: 14px;
+      line-height: 20px;
+      letter-spacing: 0%;
+      text-align: left;
+      font-family: Open Sans, sans-serif;
+  }
+
+  .payment-address-content {
+      display: flex;
+      max-width: 712px;
+      height: 75px;
+      width: 712px;
+      border-radius: 8px;
+      box-shadow: 0px 6px 24px 0px rgba(93, 62, 188, 0.03999999910593033);
+      background-color: rgba(255, 255, 255, 1);
+  }
+
+  .geo-img {
+      display: flex;
+      position: relative;
+      min-width: 20px;
+      min-height: 20px;
+      max-width: 7px;
+      width: 25.5px;
+      max-height: 24px;
+      height: 52px;
+      margin-top: auto;
+      margin-bottom: auto;
+      padding-right: 0px;
+      margin-left: 19px;
+  }
+
+  .image {
+      object-fit: cover;
+      object-position: center;
+      position: absolute;
+      height: 100%;
+      width: 100%;
+      top: 0;
+      left: 0;
+  }
+
+  .image-sizer {
+      width: 100%;
+      padding-top: -491.64000000000004%;
+      pointer-events: none;
+      font-size: 0;
+  }
+
+  .payment-address {
+      display: flex;
+      flex-direction: column;
+      position: relative;
+      margin-left: 20px;
+      height: 76.76px;
+      width: 273px;
+      padding-top: 14px;
+  }
+
+  .payment-address-name {
+      max-width: 15px;
+      color: rgba(0, 0, 0, 1);
+      font-size: 14px;
+      line-height: 19px;
+      letter-spacing: 0%;
+      text-align: left;
+      font-family: Open Sans, sans-serif;
+  }
+
+  .payment-address-detail {
+      max-width: 224px;
+      color: rgba(82, 82, 82, 1);
+      font-size: 13px;
+      line-height: 20px;
+      letter-spacing: 0%;
+      text-align: left;
+      font-family: Open Sans, sans-serif;
+      margin-top: 9px;
+  }
+
+  .payment-note-wrapper {
+      display: flex;
+      flex-direction: column;
+      max-width: 712px;
+      justify-content: center;
+      margin-top: 53px;
+  }
+
+  .payment-note-header {
+      max-width: 56px;
+      color: rgba(25, 25, 25, 1);
+      font-size: 14px;
+      line-height: 20px;
+      letter-spacing: 0%;
+      text-align: left;
+      font-family: Open Sans, sans-serif;
+  }
+
+  .payment-note-box {
+      display: flex;
+      max-width: 712px;
+      height: 124px;
+      width: 712px;
+      border-radius: 8px;
+      box-shadow: 0px 6px 24px 0px rgba(93, 62, 188, 0.03999999910593033);
+      background-color: rgba(255, 255, 255, 1);
+      padding-top: 1%;
+  }
+
+  .payment-note {
+      display: flex;
+      max-width: 700px;
+      height: 76px;
+      width: 478px;
+      border-radius: 4px;
+      border-color: rgba(223, 222, 226, 1);
+      border-width: 2px;
+      border-style: solid;
+      margin-top: 15px;
+      margin-bottom: auto;
+      margin-left: 17px;
+      color: rgba(131, 130, 135, 1);
+      font-size: 14px;
+      line-height: 16px;
+      letter-spacing: 0%;
+      text-align: left;
+      font-family: Open Sans, sans-serif;
+      padding-top: 3%;
+      padding-left: 3%;
+  }
+
+  .order-wrapper-right {
+      display: flex;
+      flex-direction: column;
+      position: relative;
+      margin-top: 20px;
+      height: 200px;
+  }
+
+  .payment-sum-wrapper {
+      display: flex;
+      flex-direction: column;
+      max-width: 400px;
+      width: 85%;
+      justify-content: center;
+      margin: 17px 50px 0px 50px;
+      background-color: white;
+      padding: 5%;
+      border-radius: 3%;
+  }
+
+  .payment-sum-text {
+      max-width: 88px;
+      color: rgba(25, 25, 25, 1);
+      font-size: 14px;
+      line-height: 20px;
+      letter-spacing: 0%;
+      text-align: left;
+      font-family: Open Sans, sans-serif;
+  }
+
+  .pymnt {
+      display: flex;
+      max-width: 248px;
+      height: 51px;
+      width: 248px;
+  }
+
+  .payment-sum-text-2 {
+      max-width: 105px;
+      color: rgba(82, 82, 82, 1);
+      font-size: 14px;
+      line-height: 18px;
+      letter-spacing: 0%;
+      text-align: left;
+      font-family: Open Sans, sans-serif;
+      margin-top: auto;
+      margin-bottom: auto;
+      margin-right: auto;
+      padding-left: 15px;
+      width: 192px;
+  }
+
+  .payment-sum-final {
+      max-width: 44px;
+      color: rgba(105, 116, 136, 1);
+      font-size: 13px;
+      line-height: 18px;
+      letter-spacing: 0%;
+      text-align: left;
+      font-family: Open Sans, sans-serif;
+      margin-left: auto;
+      margin-top: auto;
+      margin-bottom: auto;
+  }
+
+  .payment-fee-wrapper {
+      display: flex;
+      max-width: 248.47500610351562px;
+      height: 1px;
+      width: 248.47500610351562px;
+      background-color: rgba(243, 240, 254, 1);
+  }
+
+  .payment-fee {
+      display: flex;
+      max-width: 248px;
+      height: 51px;
+      width: 248px;
+  }
+
+  .payment-fee-text {
+      max-width: 66px;
+      color: rgba(82, 82, 82, 1);
+      font-size: 14px;
+      line-height: 18px;
+      letter-spacing: 0%;
+      text-align: left;
+      font-family: Open Sans, sans-serif;
+      margin-top: auto;
+      margin-bottom: auto;
+      margin-right: auto;
+      padding-left: 15px;
+  }
+
+  .payment-fee-value {
+      max-width: 36px;
+      color: rgba(105, 116, 136, 1);
+      font-size: 13px;
+      line-height: 18px;
+      letter-spacing: 0%;
+      text-align: left;
+      font-family: Open Sans, sans-serif;
+      margin-left: auto;
+      margin-top: auto;
+      margin-bottom: auto;
+  }
+
+  .payment-bag-wrapper {
+      display: flex;
+      max-width: 248px;
+      height: 51px;
+      width: 248px;
+  }
+
+  .payment-bag-text {
+      max-width: 114px;
+      color: rgba(82, 82, 82, 1);
+      font-size: 14px;
+      line-height: 18px;
+      letter-spacing: 0%;
+      text-align: left;
+      font-family: Open Sans, sans-serif;
+      margin-top: auto;
+      margin-bottom: auto;
+      margin-right: auto;
+      padding-left: 15px;
+  }
+
+  .payment-bag-value {
+      max-width: 36px;
+      color: rgba(105, 116, 136, 1);
+      font-size: 13px;
+      line-height: 18px;
+      letter-spacing: 0%;
+      text-align: left;
+      font-family: Open Sans, sans-serif;
+      margin-top: auto;
+      margin-bottom: auto;
+      margin-left: auto;
+  }
+
+  .all-sum-wrapper {
+      display: flex;
+      max-width: 248px;
+      height: 51px;
+      width: 248px;
+      align-items: center;
+  }
+
+  .all-sum-text {
+      max-width: 124px;
+      color: rgba(93, 56, 192, 1);
+      font-size: 14px;
+      line-height: 18px;
+      letter-spacing: 0%;
+      text-align: left;
+      font-family: Open Sans, sans-serif;
+      margin-top: auto;
+      margin-bottom: auto;
+      padding-left: 15px;
+  }
+
+  .all-sum-value {
+      max-width: 44px;
+      color: rgba(93, 56, 192, 1);
+      font-size: 13px;
+      line-height: 18px;
+      letter-spacing: 0%;
+      text-align: left;
+      font-family: Open Sans, sans-serif;
+      margin-left: auto;
+      margin-top: auto;
+      margin-bottom: auto;
+  }
+
+  .payment-finalize-wrapper {
+      display: flex;
+      flex-direction: row;
+      max-width: 208px;
+      justify-content: center;
+      border-radius: 8px;
+      box-shadow: 0px 2px 6px 0px rgba(105, 116, 136, 0.15000000596046448);
+      padding-top: 2px;
+      padding-bottom: 2px;
+      padding-right: 2px;
+      padding-left: 2px;
+      border-color: rgba(93, 62, 188, 1);
+      border-width: 2px;
+      border-style: solid;
+      background-color: rgba(93, 62, 188, 1);
+      margin-left: 82px;
+      margin-right: auto;
+      margin-top: 10px;
+  }
+
+  .payment-finalize-text-wrapper {
+      display: flex;
+      max-width: 204px;
+      height: 46px;
+      width: 204px;
+      background-color: rgba(93, 62, 188, 1);
+      margin-right: auto;
+      color: rgba(255, 255, 255, 1);
+      font-size: 14px;
+      line-height: 16px;
+      letter-spacing: 0%;
+      text-align: center;
+      font-family: Open Sans, sans-serif;
+      align-items: center;
+      margin-left: 21px;
+  }
+
+  .payment-final-sum-wrapper {
+      display: flex;
+      max-width: 100px;
+      height: 46px;
+      width: 154px;
+      background-color: rgba(255, 255, 255, 1);
+      color: rgba(93, 56, 192, 1);
+      font-size: 13px;
+      line-height: 21px;
+      letter-spacing: 0%;
+      text-align: left;
+      font-family: Open Sans, sans-serif;
+      margin-top: auto;
+      margin-bottom: auto;
+      padding-left: 10%;
+      margin-right: auto;
+      align-items: center;
+  }
+</style>
