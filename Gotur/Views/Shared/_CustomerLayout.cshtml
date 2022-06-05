@@ -1,9 +1,11 @@
 ﻿@using Microsoft.EntityFrameworkCore.Design
 @using Microsoft.AspNetCore.Identity
+@using Microsoft.AspNetCore.Http
 @using Microsoft.AspNetCore.Mvc.TagHelpers
 @using Microsoft.AspNetCore.Identity
 @inject SignInManager<IdentityUser> SignInManager
 @inject UserManager<IdentityUser> UserManager
+@inject IHttpContextAccessor HttpContextAccessor
 
 <!DOCTYPE html>
 <html lang="en">
@@ -129,6 +131,17 @@
               Kullanıcı Menu</a>
           <div class="dropdown-menu">
               <a class="dropdown-item" asp-area="Customer" asp-controller="Cart" asp-action="Index">Sepet</a>
+              <a class="dropdown-item" asp-area="Customer" asp-controller="Cart" asp-action="Order">Siparis
+                  
+                  @if(@HttpContextAccessor.HttpContext.Session.GetInt32("SessionCartCount") != null)
+                  {
+                     <span>(@HttpContextAccessor.HttpContext.Session.GetInt32("SessionCartCount"))</span> 
+                  }
+                  else
+                  {
+                     <span>(0)</span> 
+                  }
+              </a>
 
           </div>
 

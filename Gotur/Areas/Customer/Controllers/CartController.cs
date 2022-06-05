@@ -146,10 +146,14 @@ namespace Gotur.Areas.Customer.Controllers
             else
             {
                 _unitOfWork.Cart.Remove(cart);
-                _unitOfWork.Save();
+
+                //Kalem Sayisini Azalt
+                var cartCount = _unitOfWork.Cart.GetAll(u => u.AppUserId == cart.AppUserId).ToList().Count - 1;
+                HttpContext.Session.SetInt32("SessionCartCount", cartCount);
+
 
             }
-
+            _unitOfWork.Save();
             return RedirectToAction(nameof(Index));
         }
     }

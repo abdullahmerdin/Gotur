@@ -20,7 +20,7 @@ namespace Gotur.Areas.Customer.Controllers
         {
             IEnumerable<Product> products = _unitOfWork.Product.GetAll(includeProperties: "Category");
             return View(products);
-            
+
         }
 
         // Details ekranina category ile birlikte product bilgilerini gonder //
@@ -48,17 +48,26 @@ namespace Gotur.Areas.Customer.Controllers
             Cart cartDb =
                 _unitOfWork.Cart.GetFirstOrDefault(p => p.AppUserId == claim.Value && p.ProductId == cart.ProductId);
 
-            //Kaydet - Session sepetteki urun sayisi
+
+
+            if (cartDb == null)  //Kaydet - Session sepetteki urun sayisi
+            {
                 _unitOfWork.Cart.Add(cart);
                 _unitOfWork.Save();
-            //if (cartDb == null)
-            //{
-                
-            //}
-            //else
-            //{
-            //    //Count artir kaydet
-            //}
+
+                //Sepetteki cesit sayisi
+                int cartCount = _unitOfWork.Cart.GetAll(u => u.AppUserId == claim.Value).ToList().Count;
+                HttpContext.Session.SetInt32("SessionCartCount", cartCount);
+
+            }
+            else //Count'u gelen kadar artir
+            {
+                cartDb.Count += cart.Count;
+                _unitOfWork.Save();
+            }
+
+
+
 
             return RedirectToAction("Index");
         }
