@@ -12,7 +12,7 @@
         </picture>
         <div class="builder-image-sizer image-sizer"></div>
       </div>
-      <div class="cart-empty-text">Sepeti temizle</div>
+        <div class="cart-empty-text"><a href="#" style="text-decoration: none">Sepeti temizle</a></div>
     </div>
     @foreach (var cart in Model.ListCart)
     {
@@ -36,24 +36,22 @@
       <div class="product-count">
           <a onclick=@{ cart.Count++;}>
           <div class="product-count-2">
-               
-              <picture>
-                  <source srcset="https://cdn-icons-png.flaticon.com/512/2602/2602735.png" type="image/webp"/>
-                  <img class="image"
+              <a asp-action="Decrease" asp-route-cartId="@cart.Id"> 
+              <img class="image"
+                       src="https://cdn-icons-png.flaticon.com/512/2602/2602735.png"
                        style="max-width: 25px; max-height: 25px; padding-top: 5px; padding-left: 5px;"/>
-              </picture>
-               
+              </a>
               <div class="builder-image-sizer image-sizer-3"></div>
           </div>
           </a>
           <div class="product-count-number">@cart.Count</div>
           <div class="product-count-3">
-            <picture>
-              <source srcset="https://cdn-icons-png.flaticon.com/128/748/748113.png" type="image/webp" />
+              <a asp-action="Increase" asp-route-cartId="@cart.Id">
               <img class="image"
+                   src="https://cdn-icons-png.flaticon.com/128/748/748113.png"
                    style="max-width: 25px; max-height: 25px;"/>
-            </picture>
-            <div class="builder-image-sizer image-sizer"></div>
+      </a>
+              <div class="builder-image-sizer image-sizer"></div>
           </div>
         </div>
       </div>
@@ -83,7 +81,7 @@
         </div>
       </div>
       <div class="cart-pay-wrapper">
-        <a class="cart-pay" asp-area="Customer" asp-controller="Cart" asp-action="Order">Ödemeye Geç</a>
+        <a class="cart-pay" asp-area="Customer" asp-controller="Cart" asp-action="Order" style="text-decoration: none">Ödemeye Geç</a>
       </div>
     </div>
   </div>

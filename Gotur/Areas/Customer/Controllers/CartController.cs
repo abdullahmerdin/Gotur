@@ -121,5 +121,37 @@ namespace Gotur.Areas.Customer.Controllers
 
             return RedirectToAction(nameof(Index), "Home", new { area = "Customer" });
         }
+
+
+        //Urun Sayisi Azaltma Artirma
+        public IActionResult Increase(int cartId)
+        {
+            var cart = _unitOfWork.Cart.GetFirstOrDefault(c => c.Id == cartId);
+
+            cart.Count += 1;
+            _unitOfWork.Save();
+
+            return RedirectToAction(nameof(Index));
+        }
+        public IActionResult Decrease(int cartId)
+        {
+            var cart = _unitOfWork.Cart.GetFirstOrDefault(c => c.Id == cartId);
+
+            if (cart.Count>1)
+            {
+                cart.Count -= 1;
+                _unitOfWork.Save();
+            }
+
+            else
+            {
+                _unitOfWork.Cart.Remove(cart);
+                _unitOfWork.Save();
+
+            }
+
+            return RedirectToAction(nameof(Index));
+        }
     }
+
 }
